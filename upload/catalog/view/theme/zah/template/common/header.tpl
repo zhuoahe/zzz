@@ -38,91 +38,65 @@
 <?php } ?>
 </head>
 <body class="<?php echo $class; ?>">
-
+<?php /*  */ ?>
 <header>
-  <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" data-toggle="collapse" data-target="#navbar-collapse-header" class="navbar-toggle collapsed"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-        <a href="<?php echo $home ?>" class="navbar-brand">
-          <img src="<?php //echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"/></a></div>
-      <div class="collapse navbar-collapse" id="navbar-collapse-header">
-        <ul class="nav navbar-nav">
-          <li><a href="https://www.opencart.com/index.php?route=cms/feature">Features</a></li>
-          <li><a href="https://www.opencart.com/index.php?route=cms/demo">Demo</a></li>
-          <li><a href="https://www.opencart.com/index.php?route=marketplace/extension">Marketplace</a></li>
-          <li><a href="https://www.opencart.com/index.php?route=cms/blog">Blog</a></li>
-          <li><a href="https://www.opencart.com/index.php?route=cms/showcase">Showcase</a></li>
-          <li class="dropdown"><a href="#" data-toggle="dropdown">Resources <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="https://www.opencart.com/index.php?route=cms/download">Download</a></li>
-              <li><a href="https://www.opencart.com/index.php?route=support/partner">OpenCart Partners</a></li>
-              <li><a href="https://forum.opencart.com">Community Forums</a></li>
-              <li><a href="http://docs.opencart.com">OpenCart Documentation</a></li>
-              <li><a href="http://docs.opencart.com/#additional-reading">OpenCart Books</a></li>
-              <li><a href="https://github.com/opencart/opencart/issues">Github Bug Tracker</a></li>
-              <li><a href="http://docs.opencart.com/developer/module/">Developer</a></li>
-            </ul>
-          </li>
-          <li class="visible-xs"><a href="https://www.opencart.com/index.php?route=account/login">Login</a></li>
-          <li class="visible-xs"><a href="https://www.opencart.com/index.php?route=account/register">Register</a></li>
-        </ul>
-        <div class="navbar-right hidden-xs"><a href="https://www.opencart.com/index.php?route=account/login" class="btn btn-link navbar-btn">Login</a> <a href="https://www.opencart.com/index.php?route=account/register" class="btn btn-black navbar-btn">Register</a></div>
-      </div>
+  <nav  class="navbar navbar-default navbar-fixed-top header-nav bg-inverse  navbar-inverse " d-class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <div class=" container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <?php if ($logo) { ?>
+      <a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" class="img-responsive" /></a>
+      <?php } else { ?>
+      <h1><a href="<?php echo $home; ?>"><?php echo $name; ?></a></h1>
+      <?php } ?>
     </div>
-  </nav>
-</header>
 
-
-
-<nav id="top">
-  <div class="container">
-    <?php echo $currency; ?>
-    <?php echo $language; ?>
-    <div id="top-links" class="nav pull-right">
-      <ul class="list-inline">
-        <li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md"><?php echo $telephone; ?></span></li>
-        <li class="dropdown"><a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_account; ?></span> <span class="caret"></span></a>
-          <ul class="dropdown-menu dropdown-menu-right">
-            <?php if ($logged) { ?>
-            <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
-            <li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
-            <li><a href="<?php echo $transaction; ?>"><?php echo $text_transaction; ?></a></li>
-            <li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>
-            <li><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
-            <?php } else { ?>
-            <li><a href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
-            <li><a href="<?php echo $login; ?>"><?php echo $text_login; ?></a></li>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+             role="button" aria-haspopup="true" aria-expanded="false">
+              PRODUCT
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <?php foreach ($categories as $category) { ?>
+            <li>
+              <a href="<?php echo $category['href']; ?>">
+                <?php echo $category['name']; ?>
+              </a>
+            </li>
             <?php } ?>
+
           </ul>
         </li>
-        <li><a href="<?php echo $wishlist; ?>" id="wishlist-total" title="<?php echo $text_wishlist; ?>"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_wishlist; ?></span></a></li>
-        <li><a href="<?php echo $shopping_cart; ?>" title="<?php echo $text_shopping_cart; ?>"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_shopping_cart; ?></span></a></li>
-        <li><a href="<?php echo $checkout; ?>" title="<?php echo $text_checkout; ?>"><i class="fa fa-share"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_checkout; ?></span></a></li>
+        <li class="active">
+          <a href="#">NEWSLETTER <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">SUPPORT</a></li>
+
       </ul>
-    </div>
-  </div>
+      <div class="navbar-form navbar-right">
+        <?php echo $cart; ?>
+      </div>
+      <div class="navbar-form navbar-right">
+        <?php echo $search; ?>
+      </div>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>
-<header>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-4">
-        <div id="logo">
-          <?php if ($logo) { ?>
-          <a href="<?php echo $home; ?>"><img src="<?php //echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" class="img-responsive" /></a>
-          <?php } else { ?>
-          <h1><a href="<?php echo $home; ?>"><?php echo $name; ?></a></h1>
-          <?php } ?>
-        </div>
-      </div>
-      <div class="col-sm-5"><?php echo $search; ?>
-      </div>
-      <div class="col-sm-3"><?php echo $cart; ?></div>
-    </div>
-  </div>
 </header>
-<?php print_r($categories); ?>
-<?php if ($categories) { ?>
+<?php /* */ ?>
+
+<?php //print_r($categories); ?>
+<?php /* if ($categories) { ?>
 <div class="container">
   <nav id="menu" class="navbar">
     <div class="navbar-header"><span id="category" class="visible-xs"><?php echo $text_category; ?></span>
@@ -132,7 +106,10 @@
       <ul class="nav navbar-nav">
         <?php foreach ($categories as $category) { ?>
         <?php if ($category['children']) { ?>
-        <li class="dropdown"><a href="<?php echo $category['href']; ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $category['name']; ?></a>
+        <li class="dropdown">
+          <a href="<?php echo $category['href']; ?>" class="dropdown-toggle" data-toggle="dropdown">
+            <?php echo $category['name']; ?>
+          </a>
           <div class="dropdown-menu">
             <div class="dropdown-inner">
               <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
@@ -153,5 +130,5 @@
     </div>
   </nav>
 </div>
-<?php } ?>
+<?php } */ ?>
 

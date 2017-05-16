@@ -72,8 +72,8 @@ div.required .control-label:before {
 .dropdown-menu li > a:hover {
 	text-decoration: none;
 	color: #ffffff;
-	background-color: #229ac8;
-	background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
+	background-color: #010506;
+	background-image: linear-gradient(to bottom, #47434b, #000000);
 	background-repeat: repeat-x;
 }
 /* top */
@@ -129,7 +129,7 @@ div.required .control-label:before {
 }
 /* search */
 #search {
-	margin-bottom: 10px;
+	/*margin-bottom: 10px;*/
 }
 #search .input-lg {
 	height: 40px;
@@ -144,7 +144,7 @@ div.required .control-label:before {
 }
 /* cart */
 #cart {
-	margin-bottom: 10px;
+	/*margin-bottom: 10px;*/
 }
 #cart > .btn {
 	font-size: 12px;
@@ -191,8 +191,8 @@ div.required .control-label:before {
 }
 /* menu */
 #menu {
-	background-color: #229ac8;
-	background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
+/*	background-color: #229ac8;
+	background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);*/
 	background-repeat: repeat-x;
 	border-color: #1f90bb #1f90bb #145e7a;
 	min-height: 40px;
@@ -200,7 +200,7 @@ div.required .control-label:before {
 #menu .nav > li > a {
 	color: #fff;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-	padding: 10px 15px 10px 15px;
+	padding: 15px 15px 15px 15px;
 	min-height: 15px;
 	background-color: transparent;
 }
@@ -743,6 +743,10 @@ h2.price {
 
 /* Missing focus and border color to overwrite bootstrap */
 .btn-info:hover, .btn-info:active, .btn-info.active, .btn-info.disabled, .btn-info[disabled] {
-    background-image: none;
-    background-color: #df5c39;
+	background-image: none;
+	background-color: #df5c39;
 }
+
+/*** zah ***/
+.header-nav{border-radius: 0}
+body{margin-top: 52px}
