@@ -1,17 +1,25 @@
 <?php echo $header; ?>
 
-<?php if ($thumb || $description) { ?>
-<div class="row">
-  <h2><?php echo $heading_title; ?></h2>
-  <?php if ($thumb) { ?>
-  <div class="col-sm-2"><img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" title="<?php echo $heading_title; ?>" class="img-thumbnail" /></div>
-  <?php } ?>
-  <?php if ($description) { ?>
-  <div class="col-sm-10"><?php echo $description; ?></div>
-  <?php } ?>
+
+<style type="text/css">
+
+</style>
+<div class="page-header" style="background-image: url('https://www.opencart.com/application/view/image/banner/extensions.jpg')">
+  <div class="container text-center">
+    <h2><?php echo $heading_title; ?></h2>
+    <?php if ($thumb || $description) { ?>
+    <div >
+      <?php if ($thumb) { ?>
+      <div class="col-sm-2"><img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" title="<?php echo $heading_title; ?>" class="img-thumbnail" /></div>
+      <?php } ?>
+      <?php if ($description) { ?>
+      <div class="col-sm-10"><?php echo $description; ?></div>
+      <?php } ?>
+    </div>
+    <hr>
+    <?php } ?>
+  </div>
 </div>
-<hr>
-<?php } ?>
 <div class="container">
   <?php echo '<!--'; ?>
   <ul class="breadcrumb">
@@ -28,9 +36,11 @@
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-
+    <div id="content" class="<?php echo $class; ?>">
+      <?php echo $content_top; ?>
+<!--
       <?php if ($categories) { ?>
+
       <h3><?php echo $text_refine; ?></h3>
       <?php if (count($categories) <= 5) { ?>
       <div class="row">
@@ -42,6 +52,7 @@
           </ul>
         </div>
       </div>
+
       <?php } else { ?>
       <div class="row">
         <?php foreach (array_chunk($categories, ceil(count($categories) / 4)) as $categories) { ?>
@@ -56,6 +67,7 @@
       </div>
       <?php } ?>
       <?php } ?>
+      -->
       <?php if ($products) { ?>
       <div class="row">
         <div class="col-md-2 col-sm-6 hidden-xs">
@@ -64,26 +76,16 @@
             <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="<?php echo $button_grid; ?>"><i class="fa fa-th"></i></button>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6">
+        <div class="col-md-3  col-xs-6">
           <div class="form-group">
             <a href="<?php echo $compare; ?>" id="compare-total" class="btn btn-link"><?php echo $text_compare; ?></a>
           </div>
         </div>
-        <div class="col-md-4 col-xs-6">
-          <div class="form-group input-group input-group-sm">
-            <label class="input-group-addon" for="input-sort"><?php echo $text_sort; ?></label>
-            <select id="input-sort" class="form-control" onchange="location = this.value;">
-              <?php foreach ($sorts as $sorts) { ?>
-              <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
-              <option value="<?php echo $sorts['href']; ?>" selected="selected"><?php echo $sorts['text']; ?></option>
-              <?php } else { ?>
-              <option value="<?php echo $sorts['href']; ?>"><?php echo $sorts['text']; ?></option>
-              <?php } ?>
-              <?php } ?>
-            </select>
-          </div>
+        <div class="col-md-4 col-sm-6 hidden-xs">
         </div>
-        <div class="col-md-3 col-xs-6">
+        <!--
+        <div class="col-md-4 col-xs-6">
+
           <div class="form-group input-group input-group-sm">
             <label class="input-group-addon" for="input-limit"><?php echo $text_limit; ?></label>
             <select id="input-limit" class="form-control" onchange="location = this.value;">
@@ -97,6 +99,22 @@
             </select>
           </div>
         </div>
+        -->
+        <div class="col-md-3 col-sm-6 col-xs-6 ">
+          <div class="form-group input-group input-group-sm">
+            <label class="input-group-addon" for="input-sort"><?php echo $text_sort; ?></label>
+            <select id="input-sort" class="form-control" onchange="location = this.value;">
+              <?php foreach ($sorts as $sorts) { ?>
+              <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
+              <option value="<?php echo $sorts['href']; ?>" selected="selected"><?php echo $sorts['text']; ?></option>
+              <?php } else { ?>
+              <option value="<?php echo $sorts['href']; ?>"><?php echo $sorts['text']; ?></option>
+              <?php } ?>
+              <?php } ?>
+            </select>
+          </div>
+        </div>
+
       </div>
       <div class="row">
         <?php foreach ($products as $product) { ?>
