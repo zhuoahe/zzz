@@ -1,4 +1,15 @@
 <footer>
+  <div class="wrapper">
+    <div class="copyright">
+      <p><?php echo $powered; ?></p>
+    </div>
+
+  </div>
+  <div class="clear"></div>
+</footer>
+
+
+<footer>
   <div class="container">
     <div class="row">
       <?php if ($informations) { ?>

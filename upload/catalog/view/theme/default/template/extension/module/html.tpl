@@ -1,4 +1,4 @@
-<div>
+<div class="htmlContent">
   <?php if($heading_title) { ?>
     <h2><?php echo $heading_title; ?></h2>
   <?php } ?>

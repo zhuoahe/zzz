@@ -1,14 +1,16 @@
 <?php echo $header; ?>
-<div class="container">
-  <div class="row"><?php echo $column_left; ?>
-    <?php if ($column_left && $column_right) { ?>
-    <?php $class = 'col-sm-6'; ?>
-    <?php } elseif ($column_left || $column_right) { ?>
-    <?php $class = 'col-sm-9'; ?>
-    <?php } else { ?>
-    <?php $class = 'col-sm-12'; ?>
-    <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?><?php echo $content_bottom; ?></div>
-    <?php echo $column_right; ?></div>
+<div class="wrapper">
+  <div class="container">
+    <?php echo $content_top; ?>
+    <div class="clear"></div>
+    <div class="homeLeft ">
+    <?php echo $column_left; ?>
+    </div>
+    <div class="homeRight">
+    <?php echo $column_right; ?>
+    </div>
+    <div class="clear"></div>
+    <?php echo $content_bottom; ?>
+  </div>
 </div>
 <?php echo $footer; ?>
