@@ -1,5 +1,6 @@
 <?php echo $header; ?>
-<div class="container">
+<div class="wrapper">
+  <div class="container">
   <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
     <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
@@ -18,7 +19,7 @@
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
+    <div id="content" class="<?php echo $class; ?> product-comparison"><?php echo $content_top; ?>
       <h1><?php echo $heading_title; ?></h1>
       <?php if ($products) { ?>
       <table class="table table-bordered">
@@ -131,8 +132,14 @@
         <tr>
           <td></td>
           <?php foreach ($products as $product) { ?>
-          <td><input type="button" value="<?php echo $button_cart; ?>" class="btn btn-primary btn-block" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');" />
-            <a href="<?php echo $product['remove']; ?>" class="btn btn-danger btn-block"><?php echo $button_remove; ?></a></td>
+          <td>
+            <input type="button" value="<?php echo $button_cart; ?>"
+                   class="btn btn-primary btn-block"
+                   onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');" />
+            <a href="<?php echo $product['remove']; ?>"
+               class="btn btn-danger btn-block">
+              <?php echo $button_remove; ?></a>
+          </td>
           <?php } ?>
         </tr>
       </table>
@@ -144,5 +151,6 @@
       <?php } ?>
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
+</div>
 </div>
 <?php echo $footer; ?>

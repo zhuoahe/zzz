@@ -435,3 +435,24 @@ aside#column-right div.list-group a:last-child::after{content:"";}
 	body.checkout-cart .left .sub-total td{padding:6px;}
 	div.checkout .col-sm-6{width:88%;margin-bottom:0;}
 }
+.product-comparison {
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+.product-comparison h1{
+	background-color: black;
+	color: #ffffff;
+	margin: 0 -10px;
+	padding: 4px 10px;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+	padding: 8px;
+	line-height: 1.42857143;
+	vertical-align: top;
+	border-top: 1px solid #ddd;
+}
+.table>thead>tr>th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #ddd;
+}
