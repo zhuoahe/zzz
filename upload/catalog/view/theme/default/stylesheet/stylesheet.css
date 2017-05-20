@@ -439,6 +439,7 @@ aside#column-right div.list-group a:last-child::after{content:"";}
 	padding-right: 10px;
 	padding-left: 10px;
 	padding-bottom: 10px;
+
 }
 .product-comparison h1{
 	background-color: black;

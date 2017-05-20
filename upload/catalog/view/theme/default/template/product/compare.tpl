@@ -21,6 +21,7 @@
     <?php } ?>
     <div id="content" class="<?php echo $class; ?> product-comparison"><?php echo $content_top; ?>
       <h1><?php echo $heading_title; ?></h1>
+      <div style="overflow: scroll">
       <?php if ($products) { ?>
       <table class="table table-bordered">
         <thead>
@@ -149,8 +150,11 @@
         <div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-default"><?php echo $button_continue; ?></a></div>
       </div>
       <?php } ?>
-      <?php echo $content_bottom; ?></div>
-    <?php echo $column_right; ?></div>
+      </div>
+      <?php echo $content_bottom; ?>
+    </div>
+    <?php echo $column_right; ?>
+  </div>
 </div>
 </div>
 <?php echo $footer; ?>
