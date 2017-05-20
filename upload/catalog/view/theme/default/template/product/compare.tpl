@@ -20,7 +20,7 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?> product-comparison"><?php echo $content_top; ?>
-      <h1><?php echo $heading_title; ?></h1>
+      <h1 class="h1 bg-black"><?php echo $heading_title; ?></h1>
       <div style="overflow: scroll">
       <?php if ($products) { ?>
       <table class="table table-bordered">
