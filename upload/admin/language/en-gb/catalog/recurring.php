@@ -1,42 +1,42 @@
 <?php
 // Heading
-$_['heading_title']			= 'Recurring Profiles';
+$_['heading_title']			= '定期付款设定';
 
 // Text
-$_['text_success']          = 'Success: You have modified recurring profiles!';
-$_['text_list']             = 'Recurring Profile List';
-$_['text_add']              = 'Add Recurring Profile';
-$_['text_edit']             = 'Edit Recurring Profile';
-$_['text_day']				= 'Day';
-$_['text_week']				= 'Week';
-$_['text_semi_month']		= 'Semi Month';
-$_['text_month']			= 'Month';
-$_['text_year']				= 'Year';
-$_['text_recurring']	    = '<p><i class="fa fa-info-circle"></i> Recurring amounts are calculated by the frequency and cycles.</p><p>For example if you use a frequency of "week" and a cycle of "2", then the user will be billed every 2 weeks.</p><p>The duration is the number of times the user will make a payment, set this to 0 if you want payments until they are cancelled.</p>';
-$_['text_profile']			= 'Recurring Profile';
-$_['text_trial']			= 'Trial Profile';
+$_['text_success']          = '成功: 您已修改定期付款 ！';
+$_['text_list']             = '定期付款清单';
+$_['text_add']              = '添加定期付款';
+$_['text_edit']             = '编辑定期付款';
+$_['text_day']				= '天';
+$_['text_week']				= '周';
+$_['text_semi_month']		= '半个月';
+$_['text_month']			= '月';
+$_['text_year']				= '年';
+$_['text_recurring']	    = '<p><i class="fa fa-info-circle"></i> 定期总额是由频率和周期来计算。 </p><p>如果您选择"周" 作为频率及周期为"2", 即客户会在每2周收费一次.</p><p>期数是客户总共会被收费多少次，如果期数设定为 0 则代表持续扣款直到取消。。</p>';
+$_['text_profile']			= '定期付款';
+$_['text_trial']			= '试用设定';
 
 // Entry
-$_['entry_name']		    = 'Name';
-$_['entry_price']			= 'Price';
-$_['entry_duration']		= 'Duration';
-$_['entry_cycle']			= 'Cycle';
-$_['entry_frequency']		= 'Frequency';
-$_['entry_trial_price']		= 'Trial price';
-$_['entry_trial_duration']	= 'Trial duration';
-$_['entry_trial_status']	= 'Trial status';
-$_['entry_trial_cycle']	    = 'Trial cycle';
-$_['entry_trial_frequency'] = 'Trial frequency';
-$_['entry_status']			= 'Status';
-$_['entry_sort_order']		= 'Sort Order';
+$_['entry_name']			= '名称';
+$_['entry_price']			= '价格';
+$_['entry_duration']		= '期数';
+$_['entry_cycle']			= '周期';
+$_['entry_frequency']		= '频率';
+$_['entry_trial_price']		= '试用价格';
+$_['entry_trial_duration']	= '试用期数';
+$_['entry_trial_status']	= '试用状态';
+$_['entry_trial_cycle']	    = '试用周期';
+$_['entry_trial_frequency']	= '试用频率';
+$_['entry_status']			= '状态';
+$_['entry_sort_order']		= '排序顺序';
 
 // Column
-$_['column_name']			= 'Name';
-$_['column_sort_order']	    = 'Sort Order';
-$_['column_action']         = 'Action';
+$_['column_name']			= '名称';
+$_['column_sort_order']	    = '排序顺序';
+$_['column_action']         = '操作';
 
 // Error
-$_['error_warning']         = 'Warning: Please check the form carefully for errors!';
-$_['error_permission']		= 'Warning: You do not have permission to modify recurring profiles!';
-$_['error_name']			= 'Profile Name must be greater than 3 and less than 255 characters!';
-$_['error_product']			= 'Warning: This recurring profile cannot be deleted as it is currently assigned to %s products!';
+$_['error_warning']         = '警告: 请仔细检查表单中的错误形式 ！';
+$_['error_permission']		= '警告: 您没有权限修改定期付款 ！';
+$_['error_name']			= '定期付款名称必须是大于 3 且小于 255 个字符 ！';
+$_['error_product']			= '警告： 无法删除定期付款，因为它目前分配给 %s 产品 ！';

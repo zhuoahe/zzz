@@ -1,38 +1,36 @@
 <?php
 // Heading
-$_['heading_title']         = 'Users';
+$_['heading_title']     = '用户';
 
 // Text
-$_['text_success']          = 'Success: You have modified users!';
-$_['text_list']             = 'User List';
-$_['text_add']              = 'Add User';
-$_['text_edit']             = 'Edit User';
+$_['text_success']      = '成功: 已修改用户 ！';
+$_['text_list']         = '用户清单';
+$_['text_add']          = '添加用户';
+$_['text_edit']         = '编辑用户';
 
 // Column
-$_['column_username']       = 'Username';
-$_['column_status']         = 'Status';
-$_['column_date_added']     = 'Date Added';
-$_['column_action']         = 'Action';
+$_['column_username']   = '用户名称';
+$_['column_status']     = '状态';
+$_['column_date_added'] = '加入日期';
+$_['column_action']     = '操作';
 
 // Entry
-$_['entry_username']        = 'Username';
-$_['entry_user_group']      = 'User Group';
-$_['entry_password']        = 'Password';
-$_['entry_confirm']         = 'Confirm';
-$_['entry_firstname']       = 'First Name';
-$_['entry_lastname']        = 'Last Name';
-$_['entry_email']           = 'E-Mail';
-$_['entry_image']           = 'Image';
-$_['entry_status']          = 'Status';
+$_['entry_username']   	= '用户名称';
+$_['entry_user_group'] 	= '用户群组';
+$_['entry_password']   	= '密码';
+$_['entry_confirm']    	= '确认';
+$_['entry_firstname']  	= '名字';
+$_['entry_lastname']   	= '姓氏';
+$_['entry_email']      	= '电子邮件';
+$_['entry_image']      	= '图像';
+$_['entry_status']     	= '状态';
 
 // Error
-$_['error_permission']      = 'Warning: You do not have permission to modify users!';
-$_['error_account']         = 'Warning: You can not delete your own account!';
-$_['error_exists_username'] = 'Warning: Username is already in use!';
-$_['error_username']        = 'Username must be between 3 and 20 characters!';
-$_['error_password']        = 'Password must be between 4 and 20 characters!';
-$_['error_confirm']         = 'Password and password confirmation do not match!';
-$_['error_firstname']       = 'First Name must be between 1 and 32 characters!';
-$_['error_lastname']        = 'Last Name must be between 1 and 32 characters!';
-$_['error_email']           = 'E-Mail Address does not appear to be valid!';
-$_['error_exists_email']    = 'Warning: E-Mail Address is already registered!';
+$_['error_permission'] 	= '警告: 您没有权限修改用户 ！';
+$_['error_account']    	= '警告: 您不能删除您自己的帐户 ！';
+$_['error_exists']     	= '警告： 用户名称已被使用 ！';
+$_['error_username']   	= '用户名称必须介于 3  到 20 个字符之间 ！';
+$_['error_password']   	= '密码必须介于 4 到 20 个字符之间 ！';
+$_['error_confirm']    	= '密码和确认密码不匹配 ！';
+$_['error_firstname']  	= '名称必须介于 1 到 32 个字符之间 ！';
+$_['error_lastname']   	= '姓氏必须介于 1 到 32 个字符之间 ！';

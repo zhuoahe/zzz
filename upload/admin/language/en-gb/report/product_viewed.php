@@ -1,16 +1,16 @@
 <?php
 // Heading
-$_['heading_title']    = 'Products Viewed Report';
+$_['heading_title']    = '商品查看报告';
 
 // Text
-$_['text_list']        = 'Products Viewed List';
-$_['text_success']     = 'Success: You have reset the products viewed report!';
+$_['text_list']        = '商品查看清单';
+$_['text_success']     = '成功: 商品查看报告已重置 ！';
 
 // Column
-$_['column_name']      = 'Product Name';
-$_['column_model']     = 'Model';
-$_['column_viewed']    = 'Viewed';
-$_['column_percent']   = 'Percent';
+$_['column_name']      = '商品名称';
+$_['column_model']     = '型号';
+$_['column_viewed']    = '已查看';
+$_['column_percent']   = '百分比';
 
 // Error
-$_['error_permission'] = 'Warning: You do not have permission to reset products viewed report!';
+$_['error_permission'] = '警告: 您没有权限重置商品查看报告 ！';

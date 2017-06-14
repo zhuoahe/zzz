@@ -3,28 +3,24 @@
 $_['heading_title']        = 'APIs';
 
 // Text
-$_['text_success']         = 'Success: You have modified APIs!';
-$_['text_list']            = 'API List';
-$_['text_add']             = 'Add API';
-$_['text_edit']            = 'Edit API';
-$_['text_ip']              = 'Below you can create a list of IP\'s allowed to access the API. Your current IP is %s';
+$_['text_success']         = '成功: 您已修改了 Api ！';
+$_['text_list']            = 'API 清单';
+$_['text_add']             = '添加 API';
+$_['text_edit']            = '编辑 API';
 
 // Column
-$_['column_name']          = 'API Name';
-$_['column_status']        = 'Status';
-$_['column_date_added']    = 'Date Added';
-$_['column_date_modified'] = 'Date Modified';
-$_['column_token']         = 'Token';
-$_['column_ip']            = 'IP';
-$_['column_action']        = 'Action';
+$_['column_username']      = '用户名';
+$_['column_status']        = '状态';
+$_['column_date_added']    = '加入日期';
+$_['column_date_modified'] = '修改日期';
+$_['column_action']        = '操作';
 
 // Entry
-$_['entry_name']           = 'API Name';
-$_['entry_key']            = 'API Key';
-$_['entry_status']         = 'Status';
-$_['entry_ip']             = 'IP';
+$_['entry_username']       = '用户名';
+$_['entry_password']       = '密码';
+$_['entry_status']         = '状态';
 
 // Error
-$_['error_permission']     = 'Warning: You do not have permission to modify APIs!';
-$_['error_name']           = 'API Name must be between 3 and 20 characters!';
-$_['error_key']            = 'API Key must be between 64 and 256 characters!';
+$_['error_permission']     = '警告: 您没有权限修改 Api ！';
+$_['error_username']       = '用户名必须介于 3 到 20 个字符之间 ！';
+$_['error_password']       = 'API 密码必须介于 3 到 256 个字符之间 ！';

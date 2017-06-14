@@ -1,19 +1,19 @@
 <?php
 // Heading
-$_['heading_title']     = 'Modifications';
+$_['heading_title']     = '扩展設置';
 
 // Text
-$_['text_success']      = 'Success: You have modified modifications!';
-$_['text_refresh']      = 'Whenever you enable / disable or delete a modification you need to click the refresh button to rebuild your modification cache!';
-$_['text_list']         = 'Modification List';
+$_['text_success']      = '成功: 您已修改扩展設置！';
+$_['text_refresh']      = '每当您启用 / 关闭或删除扩展設置，您需要单击刷新按钮重新生成您的扩展設置缓存 ！';
+$_['text_list']         = '扩展設置清单';
 
 // Column
-$_['column_name']       = 'Modification Name';
-$_['column_author']     = 'Author';
-$_['column_version']    = 'Version';
-$_['column_status']     = 'Status';
-$_['column_date_added'] = 'Date Added';
-$_['column_action']     = 'Action';
+$_['column_name']       = '扩展內容名称';
+$_['column_author']     = '作者';
+$_['column_version']    = '版本';
+$_['column_status']     = '状态';
+$_['column_date_added'] = '加入日期';
+$_['column_action']     = '操作';
 
 // Error
-$_['error_permission']  = 'Warning: You do not have permission to modify modifications!';
+$_['error_permission']  = '警告: 您没有权限修改修改日志！';

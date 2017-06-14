@@ -1,21 +1,21 @@
 <?php
 // Heading
-$_['heading_title']    = 'Return Actions';
+$_['heading_title']    = '退货处理';
 
 // Text
-$_['text_success']     = 'Success: You have modified return actions!';
-$_['text_list']        = 'Return Action List';
-$_['text_add']         = 'Add Return Action';
-$_['text_edit']        = 'Edit Return Action';
+$_['text_success']     = '成功: 已修改退货处理！';
+$_['text_list']        = '退货处理清单';
+$_['text_add']         = '添加退货处理';
+$_['text_edit']        = '编辑退货处理';
 
 // Column
-$_['column_name']      = 'Return Action Name';
-$_['column_action']    = 'Action';
+$_['column_name']      = '退货处理名称';
+$_['column_action']    = '操作';
 
 // Entry
-$_['entry_name']       = 'Return Action Name';
+$_['entry_name']       = '退货处理名称';
 
 // Error
-$_['error_permission'] = 'Warning: You do not have permission to modify return actions!';
-$_['error_name']       = 'Return Action Name must be between 3 and 64 characters!';
-$_['error_return']     = 'Warning: This return action cannot be deleted as it is currently assigned to %s returned products!';
+$_['error_permission'] = '警告: 您没有权限修改退货处理 ！';
+$_['error_name']       = '退货处理名称必须是 3 和 64 个字符之间 ！';
+$_['error_return']     = '警告： 不能删除此退货处理，因为它目前分配给 %s的退货产品 ！';

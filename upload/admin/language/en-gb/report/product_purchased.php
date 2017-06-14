@@ -1,20 +1,20 @@
 <?php
 // Heading
-$_['heading_title']     = 'Products Purchased Report';
+$_['heading_title']     = '商品购买报告';
 
 // Text
-$_['text_list']         = 'Products Purchased List';
-$_['text_all_status']   = 'All Statuses';
+$_['text_list']         = '商品购买清单';
+$_['text_all_status']   = '所有状态';
 
 // Column
-$_['column_date_start'] = 'Date Start';
-$_['column_date_end']   = 'Date End';
-$_['column_name']       = 'Product Name';
-$_['column_model']      = 'Model';
-$_['column_quantity']   = 'Quantity';
-$_['column_total']      = 'Total';
+$_['column_date_start'] = '开始日期';
+$_['column_date_end']   = '结束日期';
+$_['column_name']       = '商品名称';
+$_['column_model']      = '型号';
+$_['column_quantity']   = '数量';
+$_['column_total']      = '总计';
 
 // Entry
-$_['entry_date_start']  = 'Date Start';
-$_['entry_date_end']    = 'Date End';
-$_['entry_status']      = 'Order Status';
+$_['entry_date_start']  = '开始日期';
+$_['entry_date_end']    = '结束日期';
+$_['entry_status']      = '订单状态';

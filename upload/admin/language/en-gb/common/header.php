@@ -1,23 +1,24 @@
 <?php
+
 // Heading
 $_['heading_title']          = 'OpenCart';
 
 // Text
-$_['text_order']             = 'Orders';
-$_['text_processing_status'] = 'Processing';
-$_['text_complete_status']   = 'Completed';
-$_['text_customer']          = 'Customers';
-$_['text_online']            = 'Customers Online';
-$_['text_approval']          = 'Pending approval';
-$_['text_product']           = 'Products';
-$_['text_stock']             = 'Out of stock';
-$_['text_review']            = 'Reviews';
-$_['text_return']            = 'Returns';
-$_['text_affiliate']         = 'Affiliates';
-$_['text_store']             = 'Stores';
-$_['text_front']             = 'Store Front';
-$_['text_help']              = 'Help';
-$_['text_homepage']          = 'OpenCart Homepage';
-$_['text_support']           = 'Support Forum';
-$_['text_documentation']     = 'Documentation';
-$_['text_logout']            = 'Logout';
+$_['text_order']             = '订单管理';
+$_['text_processing_status'] = '处理中订单';
+$_['text_complete_status']   = '已完成订单';
+$_['text_customer']          = '客户列表';
+$_['text_online']            = '在线客户';
+$_['text_approval']          = '待审核';
+$_['text_product']           = '商品';
+$_['text_stock']             = '缺货';
+$_['text_review']            = '评论';
+$_['text_return']            = '退货';
+$_['text_affiliate']         = '联盟';
+$_['text_store']             = '网店名称';
+$_['text_front']             = '前台';
+$_['text_help']              = '帮助';
+$_['text_homepage']          = '技术支持';
+$_['text_support']           = '应用商店';
+$_['text_documentation']     = '支持文档';
+$_['text_logout']            = '注销';

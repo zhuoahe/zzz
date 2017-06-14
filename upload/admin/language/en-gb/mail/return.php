@@ -1,8 +1,8 @@
 <?php
 // Text
-$_['text_subject']       = '%s - Return Update %s';
-$_['text_return_id']     = 'Return ID:';
-$_['text_date_added']    = 'Return Date:';
-$_['text_return_status'] = 'Your return has been updated to the following status:';
-$_['text_comment']       = 'The comments for your return are:';
-$_['text_footer']        = 'Please reply to this email if you have any questions.';
+$_['text_subject']       = '%s-退货更新 %s';
+$_['text_return_id']     = '退货ID：';
+$_['text_date_added']    = '退货日期：';
+$_['text_return_status'] = '你的退货已被更新为以下状态：';
+$_['text_comment']       = '你退货的评论如下：';
+$_['text_footer']        = '如果您有任何疑问，请回复这封电子邮件。';

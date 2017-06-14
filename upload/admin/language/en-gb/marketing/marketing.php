@@ -1,34 +1,33 @@
 <?php
 // Heading
-$_['heading_title']     = 'Marketing Tracking';
+$_['heading_title']     = '营销追踪设定';
 
 // Text
-$_['text_success']      = 'Success: You have modified marketing tracking!';
-$_['text_list']         = 'Marketing Tracking List';
-$_['text_add']          = 'Add Marketing Tracking';
-$_['text_edit']         = 'Edit Marketing Tracking';
+$_['text_success']      = '成功: 您已修改了营销追踪 ！';
+$_['text_list']         = '市场营销追踪清单';
+$_['text_add']          = '添加营销追踪';
+$_['text_edit']         = '编辑营销追踪';
 
 // Column
-$_['column_name']       = 'Campaign Name';
-$_['column_code']       = 'Code';
-$_['column_clicks']     = 'Clicks';
-$_['column_orders']     = 'Orders';
-$_['column_date_added'] = 'Date Added';
-$_['column_action']     = 'Action';
+$_['column_name']       = '市场活动名称';
+$_['column_code']       = '代码';
+$_['column_clicks']     = '单击';
+$_['column_orders']     = '订单';
+$_['column_date_added'] = '加入日期';
+$_['column_action']     = '操作';
 
 // Entry
-$_['entry_name']        = 'Campaign Name';
-$_['entry_description'] = 'Campaign Description';
-$_['entry_code']        = 'Tracking Code';
-$_['entry_example']     = 'Examples';
-$_['entry_date_added']  = 'Date Added';
+$_['entry_name']        = '市场活动名称';
+$_['entry_description'] = '活动说明';
+$_['entry_code']        = '追踪代码';
+$_['entry_example']     = '例子';
+$_['entry_date_added']  = '加入日期';
 
 // Help
-$_['help_code']         = 'The tracking code that will be used to track marketing campaigns.';
-$_['help_example']      = 'So the system can track referrals you need to add the tracking code to the end of the URL linking to your site.';
+$_['help_code']         = '追踪代码将用于记录营销活动。';
+$_['help_example']      = '您需要添加追踪代码到您的 URL 末尾以链接到您的网站，这样系统可以记录您的推介人。';
 
 // Error
-$_['error_permission']  = 'Warning: You do not have permission to modify marketing tracking!';
-$_['error_name']        = 'Campaign must be between 1 and 32 characters!';
-$_['error_code']        = 'Tracking Code required!';
-$_['error_exists']      = 'Tracking code is being used by another campaign!';
+$_['error_permission']  = '警告: 您没有权限修改营销追踪 ！';
+$_['error_name']        = '营销活动名称必须介于 1 到 32 个字符之间 ！';
+$_['error_code']        = '必须输入追踪代码 ！';

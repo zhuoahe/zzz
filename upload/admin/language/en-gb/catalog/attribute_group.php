@@ -1,24 +1,24 @@
 <?php
 // Heading
-$_['heading_title']     = 'Attribute Groups';
+$_['heading_title']     = '属性群组';
 
 // Text
-$_['text_success']      = 'Success: You have modified attribute groups!';
-$_['text_list']         = 'Attribute Group List';
-$_['text_add']          = 'Add Attribute Group';
-$_['text_edit']         = 'Edit Attribute Group';
+$_['text_success']      = '成功: 您已修改属性群组 ！';
+$_['text_list']         = '属性群组清单';
+$_['text_add']          = '添加属性群组';
+$_['text_edit']         = '编辑属性群组';
 
 // Column
-$_['column_name']       = 'Attribute Group Name';
-$_['column_sort_order'] = 'Sort Order';
-$_['column_action']     = 'Action';
+$_['column_name']       = '属性群组名称';
+$_['column_sort_order'] = '排序顺序';
+$_['column_action']     = '操作';
 
 // Entry
-$_['entry_name']        = 'Attribute Group Name';
-$_['entry_sort_order']  = 'Sort Order';
+$_['entry_name']        = '属性群组名称';
+$_['entry_sort_order']  = '排序顺序';
 
 // Error
-$_['error_permission']  = 'Warning: You do not have permission to modify attribute groups!';
-$_['error_name']        = 'Attribute Group Name must be between 3 and 64 characters!';
-$_['error_attribute']   = 'Warning: This attribute group cannot be deleted as it is currently assigned to %s attributes!';
-$_['error_product']     = 'Warning: This attribute group cannot be deleted as it is currently assigned to %s products!';
+$_['error_permission']  = '警告：你没有修改属性群组的权限！';
+$_['error_name']        = '属性群组名称必须介于 3 和 64 个字符之间 ！';
+$_['error_attribute']   = '警告： 不能删除该属性群组，因为它目前分配给 %s 属性 ！';
+$_['error_product']     = '警告： 不能删除该属性群组，因为它目前分配给 %s 产品 ！';

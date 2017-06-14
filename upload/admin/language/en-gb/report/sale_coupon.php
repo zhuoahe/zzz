@@ -1,17 +1,17 @@
 <?php
 // Heading
-$_['heading_title']    = 'Coupons Report';
+$_['heading_title']    = '优惠券报告';
 
 // Text
-$_['text_list']        = 'Coupon List';
+$_['text_list']        = '优惠券清单';
 
 // Column
-$_['column_name']      = 'Coupon Name';
-$_['column_code']      = 'Code';
-$_['column_orders']    = 'Orders';
-$_['column_total']     = 'Total';
-$_['column_action']    = 'Action';
+$_['column_name']      = '优惠券名称';
+$_['column_code']      = '代码';
+$_['column_orders']    = '订单';
+$_['column_total']     = '总计';
+$_['column_action']    = '操作';
 
 // Entry
-$_['entry_date_start'] = 'Date Start';
-$_['entry_date_end']   = 'Date End';
+$_['entry_date_start'] = '开始日期';
+$_['entry_date_end']   = '结束日期';

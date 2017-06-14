@@ -1,81 +1,51 @@
 <?php
 // Heading
-$_['heading_title']                        = 'Recurring Orders';
+$_['heading_title']                        = '定期付款';
 
 // Text
-$_['text_success']                         = 'Success: You have modified recurring profiles!';
-$_['text_list']                            = 'Recurring Order List';
-$_['text_recurring_detail']                = 'Recurring Details';
-$_['text_order_detail']                    = 'Order Details';
-$_['text_product_detail']                  = 'Product Details';
-$_['text_transaction']                     = 'Transactions';
-$_['text_order_recurring_id']              = 'Recurring Order ID';
-$_['text_reference']                       = 'Payment Reference';
-$_['text_recurring_name']                  = 'Recurring Profile';
-$_['text_recurring_description']           = 'Description';
-$_['text_recurring_status']                = 'Recurring Status';
-$_['text_payment_method']                  = 'Payment Method';
-$_['text_order_id']                        = 'Order ID';
-$_['text_customer']                        = 'Customer';
-$_['text_email']                           = 'Email';
-$_['text_date_added']                      = 'Date Added';
-$_['text_order_status']                    = 'Order Status';
-$_['text_type']                            = 'Type';
-$_['text_action']                          = 'Action';
-$_['text_product']                         = 'Product';
-$_['text_quantity']                        = 'Quantity';
-$_['text_amount']                          = 'Amount';
-$_['text_cancel_payment']                  = 'Cancel Payment';
-$_['text_status_1']                        = 'Active';
-$_['text_status_2']                        = 'Inactive';
-$_['text_status_3']                        = 'Cancelled';
-$_['text_status_4']                        = 'Suspended';
-$_['text_status_5']                        = 'Expired';
-$_['text_status_6']                        = 'Pending';
-
-$_['text_transactions']                    = 'Transactions';
-$_['text_cancel_confirm']                  = 'Profile\'s cancellation cannot be undone! Are you sure want to do this?';
-$_['text_transaction_date_added']          = 'Date added';
-$_['text_transaction_payment'] 			   = 'Payment';
-$_['text_transaction_outstanding_payment'] = 'Outstanding payment';
-$_['text_transaction_skipped']             = 'Payment skipped';
-$_['text_transaction_failed']              = 'Payment failed';
-$_['text_transaction_cancelled']           = 'Cancelled';
-$_['text_transaction_suspended']           = 'Suspended';
-$_['text_transaction_suspended_failed']    = 'Suspended from failed payment';
-$_['text_transaction_outstanding_failed']  = 'Outstanding payment failed';
-$_['text_transaction_expired']             = 'Expired';
-$_['text_cancelled']                       = 'Recurring payment has been cancelled';
-
-// Column
-$_['column_order_recurring_id']             = 'Recurring ID';
-$_['column_order_id']                       = 'Order ID';
-$_['column_reference']                      = 'Payment Reference';
-$_['column_customer']                       = 'Customer';
-$_['column_date_added']                     = 'Date Added';
-$_['column_status']                         = 'Status';
-$_['column_amount']                         = 'Amount';
-$_['column_type']                           = 'Type';
-$_['column_action']                         = 'Action';
+$_['text_success']                         = '成功: 您已修改了定期付款 ！';
+$_['text_list']                            = '定期付款清单';
+$_['text_add']                             = '添加定期付款';
+$_['text_edit']                            = '编辑定期付款';
+$_['text_payment_profiles']                = '定期付款';
+$_['text_status_active']                   = '激活';
+$_['text_status_inactive']                 = '关闭';
+$_['text_status_cancelled']                = '取消';
+$_['text_status_suspended']                = '暂停';
+$_['text_status_expired']                  = '过期';
+$_['text_status_pending']                  = '等待处理';
+$_['text_transactions']                    = '交易记录';
+$_['text_cancel_confirm']                  = '定期付款一經取消无法復原 ！你确定要这样做吗？';
+$_['text_transaction_date_added']          = '加入日期';
+$_['text_transaction_payment'] 			   = '款项';
+$_['text_transaction_outstanding_payment'] = '拖欠款项';
+$_['text_transaction_skipped']             = '已跳过支付';
+$_['text_transaction_failed']              = '支付失败';
+$_['text_transaction_cancelled']           = '取消';
+$_['text_transaction_suspended']           = '暂停';
+$_['text_transaction_suspended_failed']    = '因支付失败暂停';
+$_['text_transaction_outstanding_failed']  = '拖欠款项失败';
+$_['text_transaction_expired']             = '过期';
 
 // Entry
-$_['entry_order_recurring_id']             = 'Recurring ID';
-$_['entry_order_id']                       = 'Order ID';
-$_['entry_reference']                      = 'Payment Reference';
-$_['entry_customer']                       = 'Customer';
-$_['entry_date_added']                     = 'Date Added';
-$_['entry_status']                         = 'Status';
-$_['entry_type']                           = 'Type';
-$_['entry_action']                         = 'Action';
-$_['entry_email']                          = 'Email';
-$_['entry_description']                    = 'Recurring Profile\'s description';
-$_['entry_product']                        = 'Product';
-$_['entry_quantity']                       = 'Quantity';
-$_['entry_amount']                         = 'Amount';
-$_['entry_recurring']                      = 'Recurring Profile';
-$_['entry_payment_method']                 = 'Payment Method';
-$_['entry_cancel_payment']                 = 'Cancel Payment';
+$_['entry_cancel_payment']                 = '取消款项';
+$_['entry_order_recurring']                = 'ID';
+$_['entry_order_id']                       = '订单 ID';
+$_['entry_reference']                      = '款项参考';
+$_['entry_customer']                       = '客户';
+$_['entry_date_added']                     = '加入日期';
+$_['entry_status']                         = '状态';
+$_['entry_type']                           = '类型';
+$_['entry_action']                         = '操作';
+$_['entry_email']                          = '电子邮件';
+$_['entry_description']                    = '定期付款说明';
+$_['entry_product']                        = '产品';
+$_['entry_quantity']                       = '数量';
+$_['entry_amount']                         = '金额';
+$_['entry_recurring']                      = '定期付款';
+$_['entry_payment_method']                 = '付款方法';
 
-// Error
-$_['error_not_cancelled']                  = 'Error: %s';
-$_['error_not_found']                      = 'Could not cancel recurring profile';
+// Error / Success
+$_['error_not_cancelled']                  = '错误: %s';
+$_['error_not_found']                      = '不能取消定期付款';
+$_['text_cancelled']                    = '定期付款已被取消';

@@ -1,62 +1,62 @@
 <?php
 // Heading
-$_['heading_title']       = 'Product Returns';
+$_['heading_title']       = '商品退货';
 
 // Text
-$_['text_success']        = 'Success: You have modified returns!';
-$_['text_list']           = 'Product Return List';
-$_['text_add']            = 'Add Product Return';
-$_['text_edit']           = 'Edit Product Return';
-$_['text_opened']         = 'Opened';
-$_['text_unopened']       = 'Unopened';
-$_['text_order']          = 'Order Information';
-$_['text_product']        = 'Product Information &amp; Reason for Return';
-$_['text_history']        = 'Add Return History';
+$_['text_success']        = '成功: 您已修改了商品退货 ！';
+$_['text_list']           = '商品退货清单';
+$_['text_add']            = '添加商品退货';
+$_['text_edit']           = '编辑商品退货';
+$_['text_opened']         = '打开';
+$_['text_unopened']       = '密封';
+$_['text_order']          = '订单信息';
+$_['text_product']        = '商品信息和退货原因';
+$_['text_history']        = '添加退货历史';
 
 // Column
-$_['column_return_id']     = 'Return ID';
-$_['column_order_id']      = 'Order ID';
-$_['column_customer']      = 'Customer';
-$_['column_product']       = 'Product';
-$_['column_model']         = 'Model';
-$_['column_status']        = 'Status';
-$_['column_date_added']    = 'Date Added';
-$_['column_date_modified'] = 'Date Modified';
-$_['column_comment']       = 'Comment';
-$_['column_notify']        = 'Customer Notified';
-$_['column_action']        = 'Action';
+$_['column_return_id']     = '退货ID';
+$_['column_order_id']      = '订单 ID';
+$_['column_customer']      = '客户';
+$_['column_product']       = '商品';
+$_['column_model']         = '型号';
+$_['column_status']        = '状态';
+$_['column_date_added']    = '加入日期';
+$_['column_date_modified'] = '修改日期';
+$_['column_comment']       = '评论';
+$_['column_notify']        = '客户通知';
+$_['column_action']        = '操作';
 
 // Entry
-$_['entry_customer']      = 'Customer';
-$_['entry_order_id']      = 'Order ID';
-$_['entry_date_ordered']  = 'Order Date';
-$_['entry_firstname']     = 'First Name';
-$_['entry_lastname']      = 'Last Name';
-$_['entry_email']         = 'E-Mail';
-$_['entry_telephone']     = 'Telephone';
-$_['entry_product']       = 'Product';
-$_['entry_model']         = 'Model';
-$_['entry_quantity']      = 'Quantity';
-$_['entry_opened']        = 'Opened';
-$_['entry_comment']       = 'Comment';
-$_['entry_return_reason'] = 'Return Reason';
-$_['entry_return_action'] = 'Return Action';
-$_['entry_return_status'] = 'Return Status';
-$_['entry_notify']        = 'Notify Customer';
-$_['entry_return_id']     = 'Return ID';
-$_['entry_date_added']    = 'Date Added';
-$_['entry_date_modified'] = 'Date Modified';
+$_['entry_customer']      = '客户';
+$_['entry_order_id']      = '订单 ID';
+$_['entry_date_ordered']  = '订单日期';
+$_['entry_firstname']     = '名字';
+$_['entry_lastname']      = '姓氏';
+$_['entry_email']         = '电子邮件';
+$_['entry_telephone']     = '电话';
+$_['entry_product']       = '商品';
+$_['entry_model']         = '型号';
+$_['entry_quantity']      = '数量';
+$_['entry_opened']        = '已打开';
+$_['entry_comment']       = '评论';
+$_['entry_return_reason'] = '退货原因';
+$_['entry_return_action'] = '退货处理';
+$_['entry_return_status'] = '退货状态';
+$_['entry_notify']        = '通知客户';
+$_['entry_return_id']     = '退货ID';
+$_['entry_date_added']    = '加入日期';
+$_['entry_date_modified'] = '修改日期';
 
 // Help
-$_['help_product']        = '(Autocomplete)';
+$_['help_product']        = '(自动完成)';
 
 // Error
-$_['error_warning']       = 'Warning: Please check the form carefully for errors!';
-$_['error_permission']    = 'Warning: You do not have permission to modify returns!';
-$_['error_order_id']      = 'Order ID required!';
-$_['error_firstname']     = 'First Name must be between 1 and 32 characters!';
-$_['error_lastname']      = 'Last Name must be between 1 and 32 characters!';
-$_['error_email']         = 'E-Mail Address does not appear to be valid!';
-$_['error_telephone']     = 'Telephone must be between 3 and 32 characters!';
-$_['error_product']       = 'Product Name must be greater than 3 and less than 255 characters!';
-$_['error_model']         = 'Product Model must be greater than 3 and less than 64 characters!';
+$_['error_warning']       = '警告: 请仔细检查错误形式 ！';
+$_['error_permission']    = '警告: 您没有权限修改商品退货 ！';
+$_['error_order_id']      = '必须输入订单 ID ！';
+$_['error_firstname']     = '名称必须介于 1 到 32 个字符之间 ！';
+$_['error_lastname']      = '姓氏必须介于 1 到 32 个字符之间 ！';
+$_['error_email']         = '电子邮件地址似乎无效 ！';
+$_['error_telephone']     = '电话必须介于 3 到 32 个字符之间 ！';
+$_['error_product']       = '商品名称必须是大于 3 且小于 255 个字符 ！';
+$_['error_model']         = '商品型号必须是大于 3 且小于 64 个字符 ！';

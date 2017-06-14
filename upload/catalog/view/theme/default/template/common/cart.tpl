@@ -1,5 +1,8 @@
+
+<?php //*   ?>
 <div id="cart" class="btn-group btn-block">
-  <button type="button"><span id="cart-total"><strong>0</strong> item(s)</span></button>
+  <button type="button"><span id="cart-total"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i> <?php echo $text_items; ?></span></button>
+
   <div class="cartInfo">
     <ul>
       <?php if ($products || $vouchers) { ?>
@@ -38,8 +41,8 @@
         </table>
       </li>
       <li>
-        <div>
-          <table class="table table-bordered">
+        <div class="totals">
+          <table class="table table-no-bordered">
             <?php foreach ($totals as $total) { ?>
             <tr>
               <td class="text-right"><strong><?php echo $total['title']; ?></strong></td>
@@ -59,8 +62,8 @@
   </div>
 
 </div>
-<?php /*
 
+<?php /* / ?>
 <div id="cart" class="btn-group btn-block">
   <button type="button" data-toggle="dropdown" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-inverse btn-block btn-lg dropdown-toggle"><i class="fa fa-shopping-cart"></i> <span id="cart-total"><?php echo $text_items; ?></span></button>
   <ul class="dropdown-menu pull-right">
@@ -119,4 +122,4 @@
     <?php } ?>
   </ul>
 </div>
-*/ ?>
+<?php  // */ ?>

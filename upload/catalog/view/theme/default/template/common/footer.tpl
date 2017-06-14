@@ -1,14 +1,22 @@
 <footer>
   <div class="wrapper">
     <div class="copyright">
+      <img src="http://themes.webiz.mu/opencart/teez2/catalog/view/theme/teez/image/logoFooter.jpg"
+           alt="<?php echo $name; ?>" width="68" height="33" />
       <p><?php echo $powered; ?></p>
     </div>
-
+    <ul class="footerLinks">
+      <li><a href="<?php echo $home; ?>">Home</a></li>
+      <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
+      <li><a href="http://themes.webiz.mu/opencart/teez2/index.php?route=account/order">Order History</a></li>
+      <li><a href="http://themes.webiz.mu/opencart/teez2/index.php?route=account/wishlist">Wish List</a></li>
+      <li><a href="http://themes.webiz.mu/opencart/teez2/index.php?route=account/newsletter">Newsletter</a></li>
+    </ul>
+    <div class="clear"></div>
   </div>
-  <div class="clear"></div>
 </footer>
 
-
+<?php /* ?>
 <footer>
   <div class="container">
     <div class="row">
@@ -53,12 +61,7 @@
     <p><?php echo $powered; ?></p>
   </div>
 </footer>
+<?php */ ?>
 
-<!--
-OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
-Please donate via PayPal to donate@opencart.com
-//-->
-
-<!-- Theme created by Welford Media for OpenCart 2.0 www.welfordmedia.co.uk -->
-
+<script src="catalog/view/theme/default/js/custom.js" type="text/javascript"></script>
 </body></html>
