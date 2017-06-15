@@ -208,19 +208,10 @@
         </div>
         <div class="moreWrap" style="margin-bottom: 0">
             <div class="tabWrap">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a id="productDescriptionBtn" href="#tab-description" data-toggle="tab"><?php echo $tab_description; ?></a></li>
-                    <?php if ($attribute_groups) { ?>
-                    <li><a href="#tab-specification" data-toggle="tab"><?php echo $tab_attribute; ?></a></li>
-                    <?php } ?>
-                    <?php if ($review_status) { ?>
-                    <li><a href="#tab-review" data-toggle="tab"><?php echo $tab_review; ?></a></li>
-                    <?php } ?>
-                </ul>
-                <div class="clear"></div>
-                <div class="tab-pane active" id="tab-description"><?php echo $description; ?></div>
+
+
                 <?php if ($attribute_groups) { ?>
-                <div class="tab-pane" id="tab-specification">
+                <div class="tab-pane active" >
                     <table class="table table-bordered">
                         <?php foreach ($attribute_groups as $attribute_group) { ?>
                         <thead>
@@ -239,9 +230,13 @@
                         <?php } ?>
                     </table>
                 </div>
+                <br>
                 <?php } ?>
+
+                <div class="tab-pane active" ><?php echo $description; ?></div>
+                <br>
                 <?php if ($review_status) { ?>
-                <div class="tab-pane" id="tab-review">
+                <div class="tab-pane active">
                     <form class="form-horizontal" id="form-review">
                         <div id="review"></div>
                         <h2><?php echo $text_write; ?></h2>
