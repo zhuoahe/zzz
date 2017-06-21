@@ -68,13 +68,13 @@
                   <td class="text-left"><?php if ($product['thumb']) { ?>
                     <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-thumbnail" /></a>
                     <?php } ?><br>
-                    <a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
+                    <a href="<?php echo $product['href']; ?>"><?php echo $product['model']; ?></a>
                     <br>
 
                     <?php if (!$product['stock']) { ?>
                     <span class="text-danger">***</span>
                     <?php } ?>
-                    <?php echo $product['model']; ?>
+                    <?php //echo $product['model']; ?>
                   </td>
                   <td class="text-left">
                     <div class="show-487">
@@ -139,25 +139,39 @@
             </table>
           </div>
         </form>
-          <div class="row">
-            <div class="sub-total">
-              <table class="">
-                <?php foreach ($totals as $total) { ?>
-                <tr>
-                  <td class="text-right"><strong><?php echo $total['title']; ?>:</strong></td>
-                  <td class="text-right"><?php echo $total['text']; ?></td>
-                </tr>
-                <?php } ?>
-              </table>
+          <form action="<?php echo $pay_action; ?>" method="post" enctype="multipart/form-data">
+            <div class="row">
+              <div class="client-info">
+                <div class="input-group">
+                  <div class="label">mail:</div>
+
+                  <input type="email" value="" name="mail">
+                </div>
+                <div class="input-group">
+                  <div class="label" >order message:</div>
+                  <textarea name="message" rows="5"></textarea>
+                </div>
+              </div>
+              <div class="sub-total">
+                <table class="" style="border-bottom: none">
+                  <?php foreach ($totals as $total) { ?>
+                  <tr>
+                    <td class="text-right"><strong><?php echo $total['title']; ?>:</strong></td>
+                    <td class="text-right"><?php echo $total['text']; ?></td>
+                  </tr>
+                  <?php } ?>
+                </table>
+              </div>
             </div>
-          </div>
-          <div class="btnCart">
-            <div class="pull-right">
-              <a href="<?php echo $continue; ?>" class="btn btn-default"><?php echo $button_shopping; ?></a>
-              <a href="<?php echo $checkout; ?>" class="btnCheckout"><?php echo $button_checkout; ?></a>
+            <div class="btnCart">
+              <div class="pull-right">
+                <a href="<?php echo $continue; ?>" class="btn btn-default"><?php echo $button_shopping; ?></a>
+                <button type="submit" class="btnCheckout no-bordered" style="font-size: 15px">pay</button>
+                <!--<a href="<?php echo $checkout; ?>" class="btnCheckout"><?php echo $button_checkout; ?></a>-->
+              </div>
+              <div class="clear"></div>
             </div>
-            <div class="clear"></div>
-          </div>
+          </form>
         </div>
         <div class="right">
           <?php if ($modules) { ?>

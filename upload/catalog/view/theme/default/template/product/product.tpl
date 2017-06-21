@@ -44,10 +44,7 @@
 
                         <div class="productInfo">
                             <h1><?php echo $heading_title; ?></h1>
-                            <a href="javascript:void(0)" onclick="window.location.hash='';window.location.hash='productDescriptionBtn';document.getElementById('productDescriptionBtn').click()" >Show Description</a>
-                            <?php //echo $description; ?>
-                            <p class="shortDesc"></p>
-
+                            <a href="#productDescriptionBtn"><?php echo $model; ?></a>
                             <div class="optionsBlock">
                                 <?php if ($options) { ?>
                                 <?php foreach ($options as $option) { ?>
@@ -233,7 +230,7 @@
                 <br>
                 <?php } ?>
 
-                <div class="tab-pane active" ><?php echo $description; ?></div>
+                <div class="tab-pane active" name="productDescriptionBtn" id="productDescriptionBtn" ><?php echo $description; ?></div>
                 <br>
                 <?php if ($review_status) { ?>
                 <div class="tab-pane active">
