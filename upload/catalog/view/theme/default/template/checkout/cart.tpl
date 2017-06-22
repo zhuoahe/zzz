@@ -71,9 +71,9 @@
                     <a href="<?php echo $product['href']; ?>"><?php echo $product['model']; ?></a>
                     <br>
 
-                    <?php if (!$product['stock']) { ?>
+                    <?php /*if (!$product['stock']) { ?>
                     <span class="text-danger">***</span>
-                    <?php } ?>
+                    <?php }*/ ?>
                     <?php //echo $product['model']; ?>
                   </td>
                   <td class="text-left">
@@ -141,6 +141,16 @@
         </form>
           <form action="<?php echo $pay_action; ?>" method="post" enctype="multipart/form-data">
             <div class="row">
+              <div class="sub-total">
+                <table class="" style="border-bottom: none">
+                  <?php foreach ($totals as $total) { ?>
+                  <tr>
+                    <td class="text-right"><strong><?php echo $total['title']; ?>:</strong></td>
+                    <td class="text-right"><?php echo $total['text']; ?></td>
+                  </tr>
+                  <?php } ?>
+                </table>
+              </div>
               <div class="client-info">
                 <div class="input-group">
                   <div class="label">mail:</div>
@@ -152,22 +162,12 @@
                   <textarea name="message" rows="5"></textarea>
                 </div>
               </div>
-              <div class="sub-total">
-                <table class="" style="border-bottom: none">
-                  <?php foreach ($totals as $total) { ?>
-                  <tr>
-                    <td class="text-right"><strong><?php echo $total['title']; ?>:</strong></td>
-                    <td class="text-right"><?php echo $total['text']; ?></td>
-                  </tr>
-                  <?php } ?>
-                </table>
-              </div>
             </div>
             <div class="btnCart">
               <div class="pull-right">
                 <a href="<?php echo $continue; ?>" class="btn btn-default"><?php echo $button_shopping; ?></a>
                 <button type="submit" class="btnCheckout no-bordered" style="font-size: 15px">pay</button>
-                <!--<a href="<?php echo $checkout; ?>" class="btnCheckout"><?php echo $button_checkout; ?></a>-->
+                <?php /* <a href="<?php echo $checkout; ?>" class="btnCheckout"><?php echo $button_checkout; ?></a>*/ ?>
               </div>
               <div class="clear"></div>
             </div>

@@ -271,7 +271,7 @@ body.checkout-cart .left table tbody td input{border:1px solid #ccc;padding:6px 
 .client-info input{width: 90%; border: 1px solid #e5e5e5;padding: 5px}
 .client-info textarea{width: 90%;border: 1px solid #e5e5e5;padding: 5px}
 
-.sub-total{width:50%; text-align:right;float: left}
+.sub-total{width:50%; text-align:right;float: right}
 body.checkout-cart .left .sub-total td{padding:10px;}
 body.checkout-cart .right{float:right;width:28%;background:#fff;padding:15px;}
 body.checkout-cart .right h2{font-size:16px;margin-bottom:5px;}
