@@ -1,0 +1,141 @@
+Array
+(
+    [totals] => Array
+        (
+            [0] => Array
+                (
+                    [code] => sub_total
+                    [title] => Sub-Total
+                    [value] => 100
+                    [sort_order] => 1
+                )
+
+            [1] => Array
+                (
+                    [code] => shipping
+                    [title] => Flat Shipping Rate
+                    [value] => 5.00
+                    [sort_order] => 3
+                )
+
+            [2] => Array
+                (
+                    [code] => tax
+                    [title] => Eco Tax (-2.00)
+                    [value] => 4
+                    [sort_order] => 5
+                )
+
+            [3] => Array
+                (
+                    [code] => tax
+                    [title] => VAT (20%)
+                    [value] => 21
+                    [sort_order] => 5
+                )
+
+            [4] => Array
+                (
+                    [code] => total
+                    [title] => Total
+                    [value] => 130
+                    [sort_order] => 9
+                )
+
+        )
+
+    [invoice_prefix] => INV-2013-00
+    [store_id] => 0
+    [store_name] => Your Store
+    [store_url] => http://localhost:9092/
+    [customer_id] => 0
+    [customer_group_id] => 1
+    [firstname] => fty
+    [lastname] => erty
+    [email] => erty@adfg.com
+    [telephone] => 1234145
+    [fax] => 345345
+    [custom_field] => Array
+        (
+        )
+
+    [payment_firstname] => fty
+    [payment_lastname] => erty
+    [payment_company] =>
+    [payment_address_1] => asdf sadf
+    [payment_address_2] =>
+    [payment_city] => sdf
+    [payment_postcode] => 134324
+    [payment_zone] => Ceredigion
+    [payment_zone_id] => 3528
+    [payment_country] => United Kingdom
+    [payment_country_id] => 222
+    [payment_address_format] =>
+    [payment_custom_field] => Array
+        (
+        )
+
+    [payment_method] => Cash On Delivery
+    [payment_code] => cod
+    [shipping_firstname] => fty
+    [shipping_lastname] => erty
+    [shipping_company] =>
+    [shipping_address_1] => asdf sadf
+    [shipping_address_2] =>
+    [shipping_city] => sdf
+    [shipping_postcode] => 134324
+    [shipping_zone] => Ceredigion
+    [shipping_zone_id] => 3528
+    [shipping_country] => United Kingdom
+    [shipping_country_id] => 222
+    [shipping_address_format] =>
+    [shipping_custom_field] => Array
+        (
+        )
+
+    [shipping_method] => Flat Shipping Rate
+    [shipping_code] => flat.flat
+    [products] => Array
+        (
+            [0] => Array
+                (
+                    [product_id] => 48
+                    [name] => iPod Classic
+                    [model] => product 20
+                    [option] => Array
+                        (
+                        )
+
+                    [download] => Array
+                        (
+                        )
+
+                    [quantity] => 1
+                    [subtract] => 1
+                    [price] => 100
+                    [total] => 100
+                    [tax] => 22
+                    [reward] => 0
+                )
+
+        )
+
+    [vouchers] => Array
+        (
+        )
+
+    [comment] => qsef
+    [total] => 130
+    [affiliate_id] => 0
+    [commission] => 0
+    [marketing_id] => 0
+    [tracking] =>
+    [language_id] => 1
+    [currency_id] => 2
+    [currency_code] => USD
+    [currency_value] => 1.00000000
+    [ip] => ::1
+    [forwarded_ip] =>
+    [user_agent] => Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.109 Mobile Safari/537.36
+    [accept_language] => zh-CN,zh;q=0.8,en;q=0.6
+)

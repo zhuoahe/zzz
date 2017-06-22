@@ -500,4 +500,107 @@ class ControllerCheckoutCart extends Controller {
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
+
+    /**
+     * 结算 zah
+     *
+     */
+	public function checkout(){
+        $this->load->language('checkout/checkout');
+        $json = array();
+        if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
+            $json['redirect'] = $this->url->link('checkout/cart');
+        }
+
+        if ((utf8_strlen($this->request->post['email']) > 96) || !filter_var($this->request->post['email'], FILTER_VALIDATE_EMAIL)) {
+            $json['error']['email'] = $this->language->get('error_email');
+        }
+
+        $this->load->model('localisation/country');
+        $country_info = $this->model_localisation_country->getCountry($this->request->post['country_id']);
+        if (empty($country_info) || $this->request->post['country_id'] == '') {
+            $json['error']['country'] = $this->language->get('error_country');
+        }
+
+        if(!$json){
+            $this->session->data['account'] = 'guest';
+        }
+
+        if (!isset($this->session->data['guest']['customer_group_id'])) {
+            $this->session->data['guest']['customer_group_id'] =  $this->config->get('config_customer_group_id');
+        }
+
+        $this->session->data['account'] = 'guest';
+        // 来宾客户ID
+        $customer_group_id = $this->config->get('config_customer_group_id');
+        $firstName = '';
+        $lastName = '';
+
+        $this->session->data['guest']['customer_group_id'] = $customer_group_id;
+        $this->session->data['guest']['firstname'] = $firstName;
+        $this->session->data['guest']['lastname'] = $lastName;
+        $this->session->data['guest']['email'] = $this->request->post['email'];
+        $this->session->data['guest']['telephone'] = '';
+        $this->session->data['guest']['fax'] = '';
+
+        $this->session->data['payment_address']['firstname'] = $firstName;
+        $this->session->data['payment_address']['lastname'] = $lastName;
+        $this->session->data['payment_address']['company'] = '';
+        $this->session->data['payment_address']['address_1'] = '';
+        $this->session->data['payment_address']['address_2'] = '';
+        $this->session->data['payment_address']['postcode'] = '';
+        $this->session->data['payment_address']['city'] = '';
+        $this->session->data['payment_address']['country_id'] = $this->request->post['country_id'];
+        $this->session->data['payment_address']['zone_id'] = '';
+
+        $this->session->data['payment_address']['country'] = $country_info['name'];
+        $this->session->data['payment_address']['iso_code_2'] = $country_info['iso_code_2'];
+        $this->session->data['payment_address']['iso_code_3'] = $country_info['iso_code_3'];
+        $this->session->data['payment_address']['address_format'] = $country_info['address_format'];
+
+        $this->session->data['payment_address']['custom_field'] = array();
+
+        $this->session->data['payment_address']['zone'] = '';
+        $this->session->data['payment_address']['zone_code'] = '';
+
+        // 收货人和付款人一致
+        $this->session->data['guest']['shipping_address'] = '1';
+
+        $this->session->data['shipping_address']['firstname'] = $firstName;
+        $this->session->data['shipping_address']['lastname'] = $lastName;
+        $this->session->data['shipping_address']['company'] = '';
+        $this->session->data['shipping_address']['address_1'] = '';
+        $this->session->data['shipping_address']['address_2'] = '';
+        $this->session->data['shipping_address']['postcode'] = '';
+        $this->session->data['shipping_address']['city'] = '';
+        $this->session->data['shipping_address']['country_id'] = $this->request->post['country_id'];
+        $this->session->data['shipping_address']['zone_id'] = '';
+
+        $this->session->data['shipping_address']['country'] = $country_info['name'];
+        $this->session->data['shipping_address']['iso_code_2'] = $country_info['iso_code_2'];
+        $this->session->data['shipping_address']['iso_code_3'] = $country_info['iso_code_3'];
+        $this->session->data['shipping_address']['address_format'] = $country_info['address_format'];
+
+        $this->session->data['shipping_address']['zone'] = '';
+        $this->session->data['shipping_address']['zone_code'] = '';
+
+        $this->session->data['shipping_address']['custom_field'] = array();
+
+        // 设置默认快递 EMS
+        $shipping = explode('.', 'flat.flat');
+
+        $this->session->data['shipping_method'] = $this->session->data['shipping_methods'][$shipping[0]]['quote'][$shipping[1]];
+
+        $this->session->data['comment'] = strip_tags($this->request->post['comment']);
+
+        // 设置默认支付方式.
+        $this->session->data['payment_method'] = $this->session->data['payment_methods']['cod'];
+
+
+        unset($this->session->data['shipping_method']);
+        unset($this->session->data['shipping_methods']);
+        unset($this->session->data['payment_method']);
+        unset($this->session->data['payment_methods']);
+
+    }
 }
