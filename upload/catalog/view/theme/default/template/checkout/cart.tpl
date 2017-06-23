@@ -154,12 +154,21 @@
               <div class="client-info">
                 <div class="input-group">
                   <div class="label">mail:</div>
-
-                  <input type="email" value="" name="mail">
+                  <input type="email" value="" name="email" class="form-control">
                 </div>
+                <?php if($country_list){ ?>
+                <div class="input-group">
+                  <div class="label">shipping to:</div>
+                  <select name="country_id">
+                    <?php foreach($country_list as $country_item){ ?>
+                    <option value="<?php echo $country_item['country_id']; ?>"><?php echo $country_item['name']; ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+                <?php } ?>
                 <div class="input-group">
                   <div class="label" >order message:</div>
-                  <textarea name="message" rows="5"></textarea>
+                  <textarea name="comment" rows="5"></textarea>
                 </div>
               </div>
             </div>
