@@ -51,29 +51,3 @@
     </div>
   </div>
 </form>
-<!--
-<div style="width:100%; text-align:center; margin-top:50px;">
-Loading,Please wait . . .<br>
-It is going to PAYPAL. It will take around 5 seconds.
-</div>
-
-<form name ="cart" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_cart">
-<input type="hidden" name="upload" value="1">
-<input type="hidden" name="business" value="pay@light-bicycle.com">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="custom" value="testf@test.com">
-<input type="hidden" name="invoice" value="20170629022957916">
-<input type="hidden" name="lc" value="US">
-<input type="hidden" name="shopping_url" value="https://www.lightbicycle.com/">
-<input type="hidden" name="image_url" value="https://www.lightbicycle.com/style/logo.png">
-	<input type="hidden" name="item_name_1" value="RM29C06">
-	<input type="hidden" name="amount_1" value="165">
-	<input type="hidden" name="quantity_1" value="1">
-	<input type="hidden" name="shipping_1" value="39.93"></form>
-<SCRIPT LANGUAGE="javascript">
-cart.action = "https://www.paypal.com/cgi-bin/webscr";
-cart.submit();
-</SCRIPT>
-
--->
