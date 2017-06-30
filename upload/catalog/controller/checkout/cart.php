@@ -547,281 +547,281 @@ class ControllerCheckoutCart extends Controller {
                 break;
             }
         }
-
-        $s_data = [];
-        $s_data['account'] = 'guest';
-        // 来宾客户ID
-        $customer_group_id = $this->config->get('config_customer_group_id');
-        $firstName = '';
-        $lastName = '';
-
-
-
-
-        $s_data['guest']['customer_group_id'] = $customer_group_id;
-        $s_data['guest']['firstname'] = $firstName;
-        $s_data['guest']['lastname'] = $lastName;
-        $s_data['guest']['email'] = $this->request->post['email'];
-        $s_data['guest']['telephone'] = '';
-        $s_data['guest']['fax'] = '';
-        $s_data['guest']['custom_field'] = [];
-
-        $s_data['payment_address']['firstname'] = $firstName;
-        $s_data['payment_address']['lastname'] = $lastName;
-        $s_data['payment_address']['company'] = '';
-        $s_data['payment_address']['address_1'] = '';
-        $s_data['payment_address']['address_2'] = '';
-        $s_data['payment_address']['postcode'] = '';
-        $s_data['payment_address']['city'] = '';
-        $s_data['payment_address']['country_id'] = $country_id;
-
-        $s_data['payment_address']['zone_id'] = 0;
-
-        $s_data['payment_address']['country'] = $country_info['name'];
-        $s_data['payment_address']['iso_code_2'] = $country_info['iso_code_2'];
-        $s_data['payment_address']['iso_code_3'] = $country_info['iso_code_3'];
-        $s_data['payment_address']['address_format'] = $country_info['address_format'];
-
-        $s_data['payment_address']['custom_field'] = array();
-
-        $s_data['payment_address']['zone'] = '';
-        $s_data['payment_address']['zone_code'] = '';
-
-        // 收货人和付款人一致
-        $s_data['guest']['shipping_address'] = '1';
-
-        $s_data['shipping_address']['firstname'] = $firstName;
-        $s_data['shipping_address']['lastname'] = $lastName;
-        $s_data['shipping_address']['company'] = '';
-        $s_data['shipping_address']['address_1'] = '';
-        $s_data['shipping_address']['address_2'] = '';
-        $s_data['shipping_address']['postcode'] = '';
-        $s_data['shipping_address']['city'] = '';
-        $s_data['shipping_address']['country_id'] = $country_id;
-        $s_data['shipping_address']['zone_id'] = '0';
-
-        $s_data['shipping_address']['country'] = $country_info['name'];
-        $s_data['shipping_address']['iso_code_2'] = $country_info['iso_code_2'];
-        $s_data['shipping_address']['iso_code_3'] = $country_info['iso_code_3'];
-        $s_data['shipping_address']['address_format'] = $country_info['address_format'];
-
-        $s_data['shipping_address']['zone'] = '';
-        $s_data['shipping_address']['zone_code'] = '';
-
-        $s_data['shipping_address']['custom_field'] = array();
-
-        // 设置默认快递 EMS
-
-        // Shipping Methods
-        $method_data = array();
-
-        $this->load->model('extension/extension');
-
-        $results = $this->model_extension_extension->getExtensions('shipping');
-
-        foreach ($results as $result) {
-            if ($this->config->get($result['code'] . '_status')) {
-                $this->load->model('extension/shipping/' . $result['code']);
-
-                $quote = $this->{'model_extension_shipping_' . $result['code']}->getQuote($s_data['shipping_address']);
-
-                if ($quote) {
-                    $method_data[$result['code']] = array(
-                        'title'      => $quote['title'],
-                        'quote'      => $quote['quote'],
-                        'sort_order' => $quote['sort_order'],
-                        'error'      => $quote['error']
-                    );
-                }
-            }
-        }
-
-        $sort_order = array();
-
-        foreach ($method_data as $key => $value) {
-            $sort_order[$key] = $value['sort_order'];
-        }
-
-        array_multisort($sort_order, SORT_ASC, $method_data);
-        // 获取第一个
-        $shipping_method = current($method_data);
-        if($shipping_method){
-            $s_data['shipping_method'] = current($shipping_method['quote']);
-        }else{
-            $s_data['shipping_method'] = [];
-        }
-
-
-
-        // 订单备注
-        $s_data['comment'] = strip_tags($this->request->post['comment']);
+        if(empty($json)){
+            $s_data = [];
+            $s_data['account'] = 'guest';
+            // 来宾客户ID
+            $customer_group_id = $this->config->get('config_customer_group_id');
+            $firstName = '';
+            $lastName = '';
 
 
 
 
-        // 写入
-        $order_data = array();
+            $s_data['guest']['customer_group_id'] = $customer_group_id;
+            $s_data['guest']['firstname'] = $firstName;
+            $s_data['guest']['lastname'] = $lastName;
+            $s_data['guest']['email'] = $this->request->post['email'];
+            $s_data['guest']['telephone'] = '';
+            $s_data['guest']['fax'] = '';
+            $s_data['guest']['custom_field'] = [];
 
-        $totals = array();
-        $taxes = $this->cart->getTaxes();
-        $total = 0;
+            $s_data['payment_address']['firstname'] = $firstName;
+            $s_data['payment_address']['lastname'] = $lastName;
+            $s_data['payment_address']['company'] = '';
+            $s_data['payment_address']['address_1'] = '';
+            $s_data['payment_address']['address_2'] = '';
+            $s_data['payment_address']['postcode'] = '';
+            $s_data['payment_address']['city'] = '';
+            $s_data['payment_address']['country_id'] = $country_id;
 
-        // Because __call can not keep var references so we put them into an array.
-        $total_data = array(
-            'totals' => &$totals,
-            'taxes'  => &$taxes,
-            'total'  => &$total
-        );
+            $s_data['payment_address']['zone_id'] = 0;
 
-        $order_data = array();
+            $s_data['payment_address']['country'] = $country_info['name'];
+            $s_data['payment_address']['iso_code_2'] = $country_info['iso_code_2'];
+            $s_data['payment_address']['iso_code_3'] = $country_info['iso_code_3'];
+            $s_data['payment_address']['address_format'] = $country_info['address_format'];
 
-        $totals = array();
-        $taxes = $this->cart->getTaxes();
-        $total = 0;
+            $s_data['payment_address']['custom_field'] = array();
 
-        // Because __call can not keep var references so we put them into an array.
-        $total_data = array(
-            'totals' => &$totals,
-            'taxes'  => &$taxes,
-            'total'  => &$total
-        );
+            $s_data['payment_address']['zone'] = '';
+            $s_data['payment_address']['zone_code'] = '';
 
-        $this->load->model('extension/extension');
+            // 收货人和付款人一致
+            $s_data['guest']['shipping_address'] = '1';
 
-        $sort_order = array();
+            $s_data['shipping_address']['firstname'] = $firstName;
+            $s_data['shipping_address']['lastname'] = $lastName;
+            $s_data['shipping_address']['company'] = '';
+            $s_data['shipping_address']['address_1'] = '';
+            $s_data['shipping_address']['address_2'] = '';
+            $s_data['shipping_address']['postcode'] = '';
+            $s_data['shipping_address']['city'] = '';
+            $s_data['shipping_address']['country_id'] = $country_id;
+            $s_data['shipping_address']['zone_id'] = '0';
 
-        $results = $this->model_extension_extension->getExtensions('total');
+            $s_data['shipping_address']['country'] = $country_info['name'];
+            $s_data['shipping_address']['iso_code_2'] = $country_info['iso_code_2'];
+            $s_data['shipping_address']['iso_code_3'] = $country_info['iso_code_3'];
+            $s_data['shipping_address']['address_format'] = $country_info['address_format'];
 
-        foreach ($results as $key => $value) {
-            $sort_order[$key] = $this->config->get($value['code'] . '_sort_order');
-        }
+            $s_data['shipping_address']['zone'] = '';
+            $s_data['shipping_address']['zone_code'] = '';
 
-        array_multisort($sort_order, SORT_ASC, $results);
+            $s_data['shipping_address']['custom_field'] = array();
 
-        foreach ($results as $result) {
-            if ($this->config->get($result['code'] . '_status')) {
-                $this->load->model('extension/total/' . $result['code']);
+            // 设置默认快递 EMS
 
-                // We have to put the totals in an array so that they pass by reference.
-                $this->{'model_extension_total_' . $result['code']}->getTotal($total_data);
-            }
-        }
+            // Shipping Methods
+            $method_data = array();
 
-        // 获取默认支付
-        $method_data = array();
+            $this->load->model('extension/extension');
 
-        $this->load->model('extension/extension');
+            $results = $this->model_extension_extension->getExtensions('shipping');
 
-        $results = $this->model_extension_extension->getExtensions('payment');
+            foreach ($results as $result) {
+                if ($this->config->get($result['code'] . '_status')) {
+                    $this->load->model('extension/shipping/' . $result['code']);
 
-        $recurring = $this->cart->hasRecurringProducts();
+                    $quote = $this->{'model_extension_shipping_' . $result['code']}->getQuote($s_data['shipping_address']);
 
-        foreach ($results as $result) {
-            if ($this->config->get($result['code'] . '_status')) {
-                $this->load->model('extension/payment/' . $result['code']);
-
-                $method = $this->{'model_extension_payment_' . $result['code']}->getMethod($s_data['payment_address'], $total);
-
-                if ($method) {
-                    if ($recurring) {
-                        if (property_exists($this->{'model_extension_payment_' . $result['code']}, 'recurringPayments') && $this->{'model_extension_payment_' . $result['code']}->recurringPayments()) {
-                            $method_data[$result['code']] = $method;
-                        }
-                    } else {
-                        $method_data[$result['code']] = $method;
+                    if ($quote) {
+                        $method_data[$result['code']] = array(
+                            'title'      => $quote['title'],
+                            'quote'      => $quote['quote'],
+                            'sort_order' => $quote['sort_order'],
+                            'error'      => $quote['error']
+                        );
                     }
                 }
             }
-        }
 
-        $sort_order = array();
+            $sort_order = array();
 
-        foreach ($method_data as $key => $value) {
-            $sort_order[$key] = $value['sort_order'];
-        }
-
-        array_multisort($sort_order, SORT_ASC, $method_data);
-
-        $s_data['payment_method'] = current($method_data);
-
-
-        $sort_order = array();
-
-        foreach ($totals as $key => $value) {
-            $sort_order[$key] = $value['sort_order'];
-        }
-
-        array_multisort($sort_order, SORT_ASC, $totals);
-
-        $order_data['totals'] = $totals;
-
-        $this->load->language('checkout/checkout');
-
-        $order_data['invoice_prefix'] = $this->config->get('config_invoice_prefix');
-        $order_data['store_id'] = $this->config->get('config_store_id');
-        $order_data['store_name'] = $this->config->get('config_name');
-
-        if ($order_data['store_id']) {
-            $order_data['store_url'] = $this->config->get('config_url');
-        } else {
-            if ($this->request->server['HTTPS']) {
-                $order_data['store_url'] = HTTPS_SERVER;
-            } else {
-                $order_data['store_url'] = HTTP_SERVER;
+            foreach ($method_data as $key => $value) {
+                $sort_order[$key] = $value['sort_order'];
             }
-        }
 
-        if ($this->customer->isLogged()) {
-            $this->load->model('account/customer');
+            array_multisort($sort_order, SORT_ASC, $method_data);
+            // 获取第一个
+            $shipping_method = current($method_data);
+            if($shipping_method){
+                $s_data['shipping_method'] = current($shipping_method['quote']);
+            }else{
+                $s_data['shipping_method'] = [];
+            }
 
-            $customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
 
-            $order_data['customer_id'] = $this->customer->getId();
-            $order_data['customer_group_id'] = $customer_info['customer_group_id'];
-            $order_data['firstname'] = $customer_info['firstname'];
-            $order_data['lastname'] = $customer_info['lastname'];
-            $order_data['email'] = $customer_info['email'];
-            $order_data['telephone'] = $customer_info['telephone'];
-            $order_data['fax'] = $customer_info['fax'];
-            $order_data['custom_field'] = json_decode($customer_info['custom_field'], true);
-        } elseif (isset($s_data['guest'])) {
-            $order_data['customer_id'] = 0;
-            $order_data['customer_group_id'] = $s_data['guest']['customer_group_id'];
-            $order_data['firstname'] = $s_data['guest']['firstname'];
-            $order_data['lastname'] = $s_data['guest']['lastname'];
-            $order_data['email'] = $s_data['guest']['email'];
-            $order_data['telephone'] = $s_data['guest']['telephone'];
-            $order_data['fax'] = $s_data['guest']['fax'];
-            $order_data['custom_field'] = $s_data['guest']['custom_field'];
-        }
 
-        $order_data['payment_firstname'] = $s_data['payment_address']['firstname'];
-        $order_data['payment_lastname'] = $s_data['payment_address']['lastname'];
-        $order_data['payment_company'] = $s_data['payment_address']['company'];
-        $order_data['payment_address_1'] = $s_data['payment_address']['address_1'];
-        $order_data['payment_address_2'] = $s_data['payment_address']['address_2'];
-        $order_data['payment_city'] = $s_data['payment_address']['city'];
-        $order_data['payment_postcode'] = $s_data['payment_address']['postcode'];
-        $order_data['payment_zone'] = $s_data['payment_address']['zone'];
-        $order_data['payment_zone_id'] = $s_data['payment_address']['zone_id'];
-        $order_data['payment_country'] = $s_data['payment_address']['country'];
-        $order_data['payment_country_id'] = $s_data['payment_address']['country_id'];
-        $order_data['payment_address_format'] = $s_data['payment_address']['address_format'];
-        $order_data['payment_custom_field'] = (isset($s_data['payment_address']['custom_field']) ? $s_data['payment_address']['custom_field'] : array());
+            // 订单备注
+            $s_data['comment'] = strip_tags($this->request->post['comment']);
 
-        if (isset($s_data['payment_method']['title'])) {
-            $order_data['payment_method'] = $s_data['payment_method']['title'];
-        } else {
-            $order_data['payment_method'] = '';
-        }
 
-        if (isset($s_data['payment_method']['code'])) {
-            $order_data['payment_code'] = $s_data['payment_method']['code'];
-        } else {
-            $order_data['payment_code'] = '';
-        }
 
-       // if ($this->cart->hasShipping()) {
+
+            // 写入
+            $order_data = array();
+
+            $totals = array();
+            $taxes = $this->cart->getTaxes();
+            $total = 0;
+
+            // Because __call can not keep var references so we put them into an array.
+            $total_data = array(
+                'totals' => &$totals,
+                'taxes'  => &$taxes,
+                'total'  => &$total
+            );
+
+            $order_data = array();
+
+            $totals = array();
+            $taxes = $this->cart->getTaxes();
+            $total = 0;
+
+            // Because __call can not keep var references so we put them into an array.
+            $total_data = array(
+                'totals' => &$totals,
+                'taxes'  => &$taxes,
+                'total'  => &$total
+            );
+
+            $this->load->model('extension/extension');
+
+            $sort_order = array();
+
+            $results = $this->model_extension_extension->getExtensions('total');
+
+            foreach ($results as $key => $value) {
+                $sort_order[$key] = $this->config->get($value['code'] . '_sort_order');
+            }
+
+            array_multisort($sort_order, SORT_ASC, $results);
+
+            foreach ($results as $result) {
+                if ($this->config->get($result['code'] . '_status')) {
+                    $this->load->model('extension/total/' . $result['code']);
+
+                    // We have to put the totals in an array so that they pass by reference.
+                    $this->{'model_extension_total_' . $result['code']}->getTotal($total_data);
+                }
+            }
+
+            // 获取默认支付
+            $method_data = array();
+
+            $this->load->model('extension/extension');
+
+            $results = $this->model_extension_extension->getExtensions('payment');
+
+            $recurring = $this->cart->hasRecurringProducts();
+
+            foreach ($results as $result) {
+                if ($this->config->get($result['code'] . '_status')) {
+                    $this->load->model('extension/payment/' . $result['code']);
+
+                    $method = $this->{'model_extension_payment_' . $result['code']}->getMethod($s_data['payment_address'], $total);
+
+                    if ($method) {
+                        if ($recurring) {
+                            if (property_exists($this->{'model_extension_payment_' . $result['code']}, 'recurringPayments') && $this->{'model_extension_payment_' . $result['code']}->recurringPayments()) {
+                                $method_data[$result['code']] = $method;
+                            }
+                        } else {
+                            $method_data[$result['code']] = $method;
+                        }
+                    }
+                }
+            }
+
+            $sort_order = array();
+
+            foreach ($method_data as $key => $value) {
+                $sort_order[$key] = $value['sort_order'];
+            }
+
+            array_multisort($sort_order, SORT_ASC, $method_data);
+
+            $s_data['payment_method'] = current($method_data);
+
+
+            $sort_order = array();
+
+            foreach ($totals as $key => $value) {
+                $sort_order[$key] = $value['sort_order'];
+            }
+
+            array_multisort($sort_order, SORT_ASC, $totals);
+
+            $order_data['totals'] = $totals;
+
+            $this->load->language('checkout/checkout');
+
+            $order_data['invoice_prefix'] = $this->config->get('config_invoice_prefix');
+            $order_data['store_id'] = $this->config->get('config_store_id');
+            $order_data['store_name'] = $this->config->get('config_name');
+
+            if ($order_data['store_id']) {
+                $order_data['store_url'] = $this->config->get('config_url');
+            } else {
+                if ($this->request->server['HTTPS']) {
+                    $order_data['store_url'] = HTTPS_SERVER;
+                } else {
+                    $order_data['store_url'] = HTTP_SERVER;
+                }
+            }
+
+            if ($this->customer->isLogged()) {
+                $this->load->model('account/customer');
+
+                $customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
+
+                $order_data['customer_id'] = $this->customer->getId();
+                $order_data['customer_group_id'] = $customer_info['customer_group_id'];
+                $order_data['firstname'] = $customer_info['firstname'];
+                $order_data['lastname'] = $customer_info['lastname'];
+                $order_data['email'] = $customer_info['email'];
+                $order_data['telephone'] = $customer_info['telephone'];
+                $order_data['fax'] = $customer_info['fax'];
+                $order_data['custom_field'] = json_decode($customer_info['custom_field'], true);
+            } elseif (isset($s_data['guest'])) {
+                $order_data['customer_id'] = 0;
+                $order_data['customer_group_id'] = $s_data['guest']['customer_group_id'];
+                $order_data['firstname'] = $s_data['guest']['firstname'];
+                $order_data['lastname'] = $s_data['guest']['lastname'];
+                $order_data['email'] = $s_data['guest']['email'];
+                $order_data['telephone'] = $s_data['guest']['telephone'];
+                $order_data['fax'] = $s_data['guest']['fax'];
+                $order_data['custom_field'] = $s_data['guest']['custom_field'];
+            }
+
+            $order_data['payment_firstname'] = $s_data['payment_address']['firstname'];
+            $order_data['payment_lastname'] = $s_data['payment_address']['lastname'];
+            $order_data['payment_company'] = $s_data['payment_address']['company'];
+            $order_data['payment_address_1'] = $s_data['payment_address']['address_1'];
+            $order_data['payment_address_2'] = $s_data['payment_address']['address_2'];
+            $order_data['payment_city'] = $s_data['payment_address']['city'];
+            $order_data['payment_postcode'] = $s_data['payment_address']['postcode'];
+            $order_data['payment_zone'] = $s_data['payment_address']['zone'];
+            $order_data['payment_zone_id'] = $s_data['payment_address']['zone_id'];
+            $order_data['payment_country'] = $s_data['payment_address']['country'];
+            $order_data['payment_country_id'] = $s_data['payment_address']['country_id'];
+            $order_data['payment_address_format'] = $s_data['payment_address']['address_format'];
+            $order_data['payment_custom_field'] = (isset($s_data['payment_address']['custom_field']) ? $s_data['payment_address']['custom_field'] : array());
+
+            if (isset($s_data['payment_method']['title'])) {
+                $order_data['payment_method'] = $s_data['payment_method']['title'];
+            } else {
+                $order_data['payment_method'] = '';
+            }
+
+            if (isset($s_data['payment_method']['code'])) {
+                $order_data['payment_code'] = $s_data['payment_method']['code'];
+            } else {
+                $order_data['payment_code'] = '';
+            }
+
+            // if ($this->cart->hasShipping()) {
             $order_data['shipping_firstname'] = $s_data['shipping_address']['firstname'];
             $order_data['shipping_lastname'] = $s_data['shipping_address']['lastname'];
             $order_data['shipping_company'] = $s_data['shipping_address']['company'];
@@ -865,133 +865,130 @@ class ControllerCheckoutCart extends Controller {
 //            $order_data['shipping_code'] = '';
 //        }
 
-        $order_data['products'] = array();
+            $order_data['products'] = array();
 
-        foreach ($this->cart->getProducts() as $product) {
-            $option_data = array();
+            foreach ($this->cart->getProducts() as $product) {
+                $option_data = array();
 
-            foreach ($product['option'] as $option) {
-                $option_data[] = array(
-                    'product_option_id'       => $option['product_option_id'],
-                    'product_option_value_id' => $option['product_option_value_id'],
-                    'option_id'               => $option['option_id'],
-                    'option_value_id'         => $option['option_value_id'],
-                    'name'                    => $option['name'],
-                    'value'                   => $option['value'],
-                    'type'                    => $option['type']
+                foreach ($product['option'] as $option) {
+                    $option_data[] = array(
+                        'product_option_id'       => $option['product_option_id'],
+                        'product_option_value_id' => $option['product_option_value_id'],
+                        'option_id'               => $option['option_id'],
+                        'option_value_id'         => $option['option_value_id'],
+                        'name'                    => $option['name'],
+                        'value'                   => $option['value'],
+                        'type'                    => $option['type']
+                    );
+                }
+
+                $order_data['products'][] = array(
+                    'product_id' => $product['product_id'],
+                    'name'       => $product['name'],
+                    'model'      => $product['model'],
+                    'option'     => $option_data,
+                    'download'   => $product['download'],
+                    'quantity'   => $product['quantity'],
+                    'subtract'   => $product['subtract'],
+                    'price'      => $product['price'],
+                    'total'      => $product['total'],
+                    'tax'        => $this->tax->getTax($product['price'], $product['tax_class_id']),
+                    'reward'     => $product['reward']
                 );
             }
 
-            $order_data['products'][] = array(
-                'product_id' => $product['product_id'],
-                'name'       => $product['name'],
-                'model'      => $product['model'],
-                'option'     => $option_data,
-                'download'   => $product['download'],
-                'quantity'   => $product['quantity'],
-                'subtract'   => $product['subtract'],
-                'price'      => $product['price'],
-                'total'      => $product['total'],
-                'tax'        => $this->tax->getTax($product['price'], $product['tax_class_id']),
-                'reward'     => $product['reward']
-            );
-        }
+            // Gift Voucher
+            $order_data['vouchers'] = array();
 
-        // Gift Voucher
-        $order_data['vouchers'] = array();
-
-        if (!empty($s_data['vouchers'])) {
-            foreach ($s_data['vouchers'] as $voucher) {
-                $order_data['vouchers'][] = array(
-                    'description'      => $voucher['description'],
-                    'code'             => token(10),
-                    'to_name'          => $voucher['to_name'],
-                    'to_email'         => $voucher['to_email'],
-                    'from_name'        => $voucher['from_name'],
-                    'from_email'       => $voucher['from_email'],
-                    'voucher_theme_id' => $voucher['voucher_theme_id'],
-                    'message'          => $voucher['message'],
-                    'amount'           => $voucher['amount']
-                );
+            if (!empty($s_data['vouchers'])) {
+                foreach ($s_data['vouchers'] as $voucher) {
+                    $order_data['vouchers'][] = array(
+                        'description'      => $voucher['description'],
+                        'code'             => token(10),
+                        'to_name'          => $voucher['to_name'],
+                        'to_email'         => $voucher['to_email'],
+                        'from_name'        => $voucher['from_name'],
+                        'from_email'       => $voucher['from_email'],
+                        'voucher_theme_id' => $voucher['voucher_theme_id'],
+                        'message'          => $voucher['message'],
+                        'amount'           => $voucher['amount']
+                    );
+                }
             }
-        }
 
-        $order_data['comment'] = $s_data['comment'];
-        $order_data['total'] = $total_data['total'];
+            $order_data['comment'] = $s_data['comment'];
+            $order_data['total'] = $total_data['total'];
 
-        if (isset($this->request->cookie['tracking'])) {
-            $order_data['tracking'] = $this->request->cookie['tracking'];
+            if (isset($this->request->cookie['tracking'])) {
+                $order_data['tracking'] = $this->request->cookie['tracking'];
 
-            $subtotal = $this->cart->getSubTotal();
+                $subtotal = $this->cart->getSubTotal();
 
-            // Affiliate
-            $this->load->model('affiliate/affiliate');
+                // Affiliate
+                $this->load->model('affiliate/affiliate');
 
-            $affiliate_info = $this->model_affiliate_affiliate->getAffiliateByCode($this->request->cookie['tracking']);
+                $affiliate_info = $this->model_affiliate_affiliate->getAffiliateByCode($this->request->cookie['tracking']);
 
-            if ($affiliate_info) {
-                $order_data['affiliate_id'] = $affiliate_info['affiliate_id'];
-                $order_data['commission'] = ($subtotal / 100) * $affiliate_info['commission'];
+                if ($affiliate_info) {
+                    $order_data['affiliate_id'] = $affiliate_info['affiliate_id'];
+                    $order_data['commission'] = ($subtotal / 100) * $affiliate_info['commission'];
+                } else {
+                    $order_data['affiliate_id'] = 0;
+                    $order_data['commission'] = 0;
+                }
+
+                // Marketing
+                $this->load->model('checkout/marketing');
+
+                $marketing_info = $this->model_checkout_marketing->getMarketingByCode($this->request->cookie['tracking']);
+
+                if ($marketing_info) {
+                    $order_data['marketing_id'] = $marketing_info['marketing_id'];
+                } else {
+                    $order_data['marketing_id'] = 0;
+                }
             } else {
                 $order_data['affiliate_id'] = 0;
                 $order_data['commission'] = 0;
-            }
-
-            // Marketing
-            $this->load->model('checkout/marketing');
-
-            $marketing_info = $this->model_checkout_marketing->getMarketingByCode($this->request->cookie['tracking']);
-
-            if ($marketing_info) {
-                $order_data['marketing_id'] = $marketing_info['marketing_id'];
-            } else {
                 $order_data['marketing_id'] = 0;
+                $order_data['tracking'] = '';
             }
-        } else {
-            $order_data['affiliate_id'] = 0;
-            $order_data['commission'] = 0;
-            $order_data['marketing_id'] = 0;
-            $order_data['tracking'] = '';
-        }
-        $s_data['currency'] = $this->session->data['currency'];
-        $order_data['language_id'] = $this->config->get('config_language_id');
-        $order_data['currency_id'] = $this->currency->getId($s_data['currency']);
-        $order_data['currency_code'] = $s_data['currency'];
-        $order_data['currency_value'] = $this->currency->getValue($s_data['currency']);
-        $order_data['ip'] = $this->request->server['REMOTE_ADDR'];
+            $s_data['currency'] = $this->session->data['currency'];
+            $order_data['language_id'] = $this->config->get('config_language_id');
+            $order_data['currency_id'] = $this->currency->getId($s_data['currency']);
+            $order_data['currency_code'] = $s_data['currency'];
+            $order_data['currency_value'] = $this->currency->getValue($s_data['currency']);
+            $order_data['ip'] = $this->request->server['REMOTE_ADDR'];
 
-        if (!empty($this->request->server['HTTP_X_FORWARDED_FOR'])) {
-            $order_data['forwarded_ip'] = $this->request->server['HTTP_X_FORWARDED_FOR'];
-        } elseif (!empty($this->request->server['HTTP_CLIENT_IP'])) {
-            $order_data['forwarded_ip'] = $this->request->server['HTTP_CLIENT_IP'];
-        } else {
-            $order_data['forwarded_ip'] = '';
-        }
+            if (!empty($this->request->server['HTTP_X_FORWARDED_FOR'])) {
+                $order_data['forwarded_ip'] = $this->request->server['HTTP_X_FORWARDED_FOR'];
+            } elseif (!empty($this->request->server['HTTP_CLIENT_IP'])) {
+                $order_data['forwarded_ip'] = $this->request->server['HTTP_CLIENT_IP'];
+            } else {
+                $order_data['forwarded_ip'] = '';
+            }
 
-        if (isset($this->request->server['HTTP_USER_AGENT'])) {
-            $order_data['user_agent'] = $this->request->server['HTTP_USER_AGENT'];
-        } else {
-            $order_data['user_agent'] = '';
-        }
+            if (isset($this->request->server['HTTP_USER_AGENT'])) {
+                $order_data['user_agent'] = $this->request->server['HTTP_USER_AGENT'];
+            } else {
+                $order_data['user_agent'] = '';
+            }
 
-        if (isset($this->request->server['HTTP_ACCEPT_LANGUAGE'])) {
-            $order_data['accept_language'] = $this->request->server['HTTP_ACCEPT_LANGUAGE'];
-        } else {
-            $order_data['accept_language'] = '';
-        }
+            if (isset($this->request->server['HTTP_ACCEPT_LANGUAGE'])) {
+                $order_data['accept_language'] = $this->request->server['HTTP_ACCEPT_LANGUAGE'];
+            } else {
+                $order_data['accept_language'] = '';
+            }
 
-        $this->load->model('checkout/order');
+            $this->load->model('checkout/order');
 
-        // 保存订单
-        $this->session->data['order_id'] = $this->model_checkout_order->addOrder($order_data);
-
-
-        if($json){
-            $this->response->addHeader('Content-Type: application/json');
-            $this->response->setOutput(json_encode($json));
-        }else{
+            // 保存订单
+            $this->session->data['order_id'] = $this->model_checkout_order->addOrder($order_data);
             $html =  $this->load->controller('extension/payment/' . $s_data['payment_method']['code']);
             $this->response->setOutput($html);
+        }else{
+            $this->response->addHeader('Content-Type: application/json');
+            $this->response->setOutput(json_encode($json));
         }
     }
 
@@ -1006,15 +1003,56 @@ class ControllerCheckoutCart extends Controller {
         if(empty($country_id)){
             $json['error'] = $error;
         }
-        $this->load->model('localisation/zone');
 
-        $total = 0;
-
-        foreach ($this->cart->getProducts as $product) {
-            $total += $this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax')) * $product['quantity'];
+        $this->load->model('localisation/country');
+        $country_info = $this->model_localisation_country->getCountry($country_id);
+        if(empty($country_info) || $country_info['status'] =='0'){
+            $json['error'] = $error;
         }
 
-        echo  $total;
+        if (empty($json['error'])){
+            $shipping_extension_code = 'weight';
+            $this->load->model('extension/shipping/' . $shipping_extension_code);
+
+            $quote = $this->{'model_extension_shipping_' . $shipping_extension_code}->getQuote(array(
+                'firstname'      => '',
+                'lastname'       => '',
+                'company'        => '',
+                'address_1'      => '',
+                'address_2'      => '',
+                'postcode'       => '',
+                'city'           => '',
+                'zone_id'        => '0',
+                'zone'           => '',
+                'zone_code'      => '',
+                'country_id'     => $country_id,
+                'country'        => $country_info['name'],
+                'iso_code_2'     => $country_info['iso_code_2'],
+                'iso_code_3'     => $country_info['iso_code_3'],
+                'address_format' => $country_info['address_format']
+            ));
+            $quote_data = [];
+            if ($quote) {
+                $quote_data[$shipping_extension_code] = array(
+                    'title'      => $quote['title'],
+                    'quote'      => $quote['quote'],
+                    'sort_order' => $quote['sort_order'],
+                    'error'      => $quote['error']
+                );
+                $json['shipping_method'] = $quote_data;
+                if(!empty($quote['quote'])){
+                    $shipping_method = current($quote['quote']);
+                    $shipping_method['title'] = 'Freight';
+                    $this->session->data['shipping_method'] = $shipping_method;
+                }
+
+            }else{
+                $json['error'] = $error;
+            }
+
+        }
+        $this->response->addHeader('Content-Type: application/json');
+        $this->response->setOutput(json_encode($json));
 
     }
 
