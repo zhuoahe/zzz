@@ -489,3 +489,14 @@ $(document).delegate('.agree', 'click', function(e) {
 		});
 	}
 })(window.jQuery);
+
+var productOption = {
+	'radioClick':function (e) {
+		var inputType = 'radio';
+		var checkedClass = 'checked';
+		var jqE = $(e);
+		var checkedE = jqE.parent().parent().find('.' + inputType +'>.' + checkedClass);
+		checkedE.removeClass(checkedClass);
+		jqE.addClass(checkedClass);
+    }
+};

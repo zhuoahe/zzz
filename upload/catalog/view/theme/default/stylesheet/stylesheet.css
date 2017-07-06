@@ -171,6 +171,12 @@ body.product .breadcrumb{display:none;}
 .addBtns a{margin:0 !important;}
 .optionsBlock{border-top:1px solid #eee;padding-top:15px;}
 .optionsBlock label{font-size:16px;font-weight:bold;margin-bottom:5px;display:block;}
+/* 产品单选框设置 */
+.optionsBlock .radio label>input{display:none}
+.optionsBlock .radio label{ padding:4px 6px ;float: left;background-color: white;border: 1px solid #999999;cursor: pointer;margin-right: 10px;border-radius: 3px}
+.optionsBlock .radio label.checked{background: #2e3336;color: #fff;border-color: #2e3336}
+.optionsBlock>.form-group{display: inline-block;width: 100%}
+
 .imgOption li{display:inline-block;background:#fff;margin-right:3px;}
 .imgOption li a{border:1px solid #ccc;}
 .imgOption li a,.imgOption li a img{display:block;}
@@ -365,7 +371,7 @@ aside#column-right div.list-group a:last-child::after{content:"";}
 	.credits{float:left;}
 	.catProducts .product-layout:nth-child(2n){margin:0;}
 	.catProducts .product-layout:nth-child(3n+2){margin:0 10px;}
-	.singleWrapper{width:100%;}
+	.singleWrapper{width:100%;box-sizing: border-box;  }
 	.addProd{text-align:center;}
 	.addProd button{float:none;margin-top:10px;}
 	ul.price-list{width:100%;}
@@ -385,7 +391,7 @@ aside#column-right div.list-group a:last-child::after{content:"";}
 	#slideshow0{width:96.4%;}
 	.product-layout{width:31.6%;}
 	.prodImage{width:100%;}
-	.prodImages{width:100%;}
+	.prodImages{width:100%;  border:none;}
 	.productInfo{width:100%;}
 	div.checkout .col-sm-6{width:94%;}
 	.bestseller .owl-item, .bestseller .owl-item .product-layout{width:190px !important;}
@@ -426,7 +432,7 @@ aside#column-right div.list-group a:last-child::after{content:"";}
 	.bestseller .owl-item, .bestseller .owl-item .product-layout{width:126px !important;}
 	.footerLinks li{display:block;border-bottom:1px solid #eee;}
 	.catProducts .product-layout{width:100%;margin:0 !important;}
-	.singleWrapper{width:99%;}
+	/*.singleWrapper{width:99%;}*/
 	.thumbs{box-sizing: border-box;width:100%;float:none;height:auto;}
 	.thumbs li{display:inline;float:left;margin-right:10px;}
 	.thumbnails{width:100%;height:auto;}

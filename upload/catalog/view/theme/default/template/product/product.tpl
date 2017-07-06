@@ -69,7 +69,7 @@
                                     <div id="input-option<?php echo $option['product_option_id']; ?>">
                                         <?php foreach ($option['product_option_value'] as $option_value) { ?>
                                         <div class="radio">
-                                            <label>
+                                            <label onclick="productOption.radioClick(this)">
                                                 <input type="radio" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option_value['product_option_value_id']; ?>" />
                                                 <?php if ($option_value['image']) { ?>
                                                 <img src="<?php echo $option_value['image']; ?>" alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>" class="img-thumbnail" />
@@ -157,6 +157,7 @@
                                 <?php } ?>
                                 <?php } ?>
                             </div>
+                            <div class="clear"></div>
                             <div class="qtyBox">
                                 <label class="control-label" for="input-quantity"><?php echo $entry_qty; ?></label>
                                 <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" />
