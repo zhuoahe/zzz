@@ -172,10 +172,10 @@ body.product .breadcrumb{display:none;}
 .optionsBlock{border-top:1px solid #eee;padding-top:15px;}
 .optionsBlock label{font-size:16px;font-weight:bold;margin-bottom:5px;display:block;}
 /* 产品单选框设置 */
-.optionsBlock .radio label>input{display:none}
-.optionsBlock .radio label{ padding:4px 6px ;float: left;background-color: white;border: 1px solid #999999;cursor: pointer;margin-right: 10px;border-radius: 3px}
-.optionsBlock .radio label.checked{background: #2e3336;color: #fff;border-color: #2e3336}
-.optionsBlock>.form-group{display: inline-block;width: 100%}
+.black-btn>input{display:none}
+.black-btn{ padding:4px 6px ;float: left;background-color: white;border: 1px solid #999999;cursor: pointer;margin-right: 10px;border-radius: 3px;font-size: 15px !important;font-weight: 100 !important;}
+.black-btn.checked{background: #2e3336;color: #fff;border-color: #2e3336}
+
 
 .imgOption li{display:inline-block;background:#fff;margin-right:3px;}
 .imgOption li a{border:1px solid #ccc;}
