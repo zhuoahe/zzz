@@ -1,3 +1,4 @@
+<?php /* ?>
 <footer>
   <div class="wrapper">
     <div class="copyright">
@@ -16,9 +17,10 @@
   </div>
 </footer>
 
-<?php /* ?>
+<?php // */ ?>
+<?php //* ?>
 <footer>
-  <div class="container">
+  <div class="container wrapper">
     <div class="row">
       <?php if ($informations) { ?>
       <div class="col-sm-3">
@@ -61,7 +63,7 @@
     <p><?php echo $powered; ?></p>
   </div>
 </footer>
-<?php */ ?>
+<?php //*/ ?>
 
 <script src="catalog/view/theme/default/js/custom.js" type="text/javascript"></script>
 </body></html>

@@ -366,7 +366,7 @@ aside#column-right div.list-group a:last-child::after{content:"";}
 	.product-thumb .image a img{width:100%;}
 	.image{background:#fff;}
 	.homeRight{float:left;width:100%;}
-	.homeRight .htmlContent{display:none;}
+/*	.homeRight .htmlContent{display:none;}*/
 	.bestseller .owl-item,.bestseller .owl-item .product-layout{width:220px !important;}
 	.credits{float:left;}
 	.catProducts .product-layout:nth-child(2n){margin:0;}
